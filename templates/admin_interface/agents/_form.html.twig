@@ -1,0 +1,22 @@
+
+{{ form_start(form) }}
+<div class="row d-flex justify-content-center">
+    <div class="col-3 text-center">
+        {{ form_label(form.username) }}
+    </div>
+    <div class="col-6 mb-3">
+        {{ form_widget(form.username) }}
+    </div>
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="col-3 text-center">
+        {{ form_label(form.password) }}
+    </div>
+    <div class="col-6 mb-3">
+        {{ form_widget(form.password) }}
+    </div>
+</div>
+<div class="text-center">
+    <button class="btn buttonStyle3 mb-3">{{ button_label}}</button>
+</div>
+{{ form_end(form) }}

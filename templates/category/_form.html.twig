@@ -1,0 +1,23 @@
+
+<div class="container">
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.nom) }}
+
+    {% if category.image is not null %}
+
+        <div class="border-1">
+            <span>Image actuelle</span>
+            <img class="img-thumbnail w-25" src="{{ asset('images/category/' ~ category.image) }}">
+        </div>
+
+        <label>Changer l'image si l'actuelle ne convient pas... </label>
+        {{ form_row(form.image, {'required': false}) }}
+    {% else %}
+        {{ form_row(form.image, {'required': true}) }}
+    {% endif %}
+
+
+    {{ form_end(form) }}
+</div>

@@ -1,0 +1,100 @@
+{% extends 'base_ju.html.twig' %}
+
+{% block title %}Hello DeliciousKangarooController!{% endblock %}
+
+{% block body %}
+
+
+
+    <div class="container-fluid">
+        <h1 class="mb-5 text-center">Hello {{ controller_name }}! </h1>
+
+        <div class="container">
+            <div id="draggable" class="ui-widget-content">
+
+                <div class="alert alert-warning text-center p-5 " role="alert">
+                    Element that I want draggable
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-success" onclick="onSolidRect()" >
+            Add Sticky Note
+        </button>
+        <button class="btn btn-dark" onclick="removeSelected()">Remove Selected</button>
+
+{#        <label for="colorPicker" class="control-label">Couleur</label>
+        <select id="colorPicker" class="form-control">
+            <option value="random">Au hasard</option>
+            <option value="yellow">Jaune</option>
+            <option value="green">Vert</option>
+            <option value="blue">Bleu</option>
+            <option value="white">Blanc</option>
+        </select>#}
+
+        <label>Choose a color:
+            <select id="color" name="color">
+                <option value="">Choississez-en une …</option>
+                <option value="yellow">Jaune</option>
+                <option value="green">Vert</option>
+                <option value="blue">Bleu</option>
+            </select>
+        </label>
+
+        <div class="result"></div>
+
+
+        <div class="container" id="bloc">
+        </div>
+
+        <canvas  width="1500px" height="500px" id="whiteboard" style="border:1px solid #000000;">
+        </canvas>
+
+
+    </div>
+
+
+<div class="container">
+<div class="ui-widget-content" id="draggable2">
+    <div id="getText" class="alert alert-warning p-5 " style="display: none;">
+        INNER TEXT
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {#       <div id="set">
+            <div class="row">
+                <div class="ui-widget-content col-3">
+                    <img src="{{ asset("imagesJu/map/map1.png") }}" alt="différents bout de la carte">
+                </div>
+                <div class="ui-widget-content col-3">
+                    <img src="{{ asset("imagesJu/map/map2.png") }}" alt="différents bout de la carte">
+                </div>
+                <div class="ui-widget-content col-3">
+                    <img src="{{ asset("imagesJu/map/map3.png") }}" alt="différents bout de la carte">
+                </div>
+                <div class="ui-widget-content col-3">
+                    <img src="{{ asset("imagesJu/map/map4.png") }}" alt="différents bout de la carte">
+                </div>
+                <div class="ui-widget-content col-3">
+                    <img src="{{ asset("imagesJu/map/map5.png") }}" alt="différents bout de la carte">
+                </div>
+            </div>
+        </div>#}
+
+
+    {# Fabric.js #}
+
+{% endblock %}

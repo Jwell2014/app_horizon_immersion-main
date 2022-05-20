@@ -1,0 +1,21 @@
+{{ form_start(form) }}
+<div class="row d-flex justify-content-center">
+    <div class="col-3 text-center">
+        {{ form_label(form.Nom) }}
+    </div>
+    <div class="col-6 mb-3">
+        {{ form_widget(form.Nom) }}
+    </div>
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="col-3 text-center">
+        {{ form_label(form.isActive, 'Visibilité') }}
+    </div>
+    <div class="col-6 mb-3">
+        {{ form_widget(form.isActive) }}
+    </div>
+</div>
+<div class="text-center">
+    <button class="btn buttonStyle2 p-2 mb-3">{{ button_label }}</button>
+</div>
+{{ form_end(form) }}

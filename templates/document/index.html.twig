@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block title %}Document index{% endblock %}
+{% block body %}
+
+    <div class="container">
+    <h1 class="text-center my-5 text-decoration-underline">Tableau de Document</h1>
+
+        <button class="float-start my-5 pt-4 btn btn-outline-dark "><a href="{{ path('app_default') }}" class="text-decoration-none">Retour a l'accueil</a></button>
+        <button class="float-end my-5 pt-4 btn btn-outline-dark "><a href="{{ path('document_new') }}" class="text-decoration-none">Créer un nouveau document</a></button>
+
+        <table class="table table-dark table-striped my-5">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Contenu</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for document in documents %}
+            <tr>
+                <td>{{ document.id }}</td>
+                <td>{{ document.nom }}</td>
+                <td>{{ document.description }}</td>
+                <td><img class="img-thumbnail w-25" src="{{ asset('images/document/' ~ document.contenu) }}"></td>
+                <td>{{ document.date ? document.date|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a class="btn btn-info" href="{{ path('document_show', {'id': document.id}) }}">Voir</a>
+                    <a class="btn btn-warning" href="{{ path('document_edit', {'id': document.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun document trouver</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

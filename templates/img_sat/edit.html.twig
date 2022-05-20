@@ -1,0 +1,18 @@
+
+{% extends 'base_admin.html.twig' %}
+
+{% block title %} Éditer une image satellite{% endblock %}
+
+{% block body %}
+
+    <div class="container newE1 bgNewE1">
+        <div class="card mt-5 col-6 offset-3 bg-light">
+            <h2 class="text-center my-5">Éditer une image satellite</h2>
+            {{ include('img_sat/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+            <div class="text-center">
+                <a href="{{ path('app_chrono_index') }}" class="btn buttonStyle3 mb-5">Retour</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

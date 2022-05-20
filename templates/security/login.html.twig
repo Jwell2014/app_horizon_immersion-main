@@ -1,0 +1,57 @@
+{% extends 'base_ju.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+    <form method="post">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        <div class="container newE1 bgNewE1">
+            <div class="card loginCard mt-5 col-6 offset-3 shadow shadow-lg fadeInDown">
+                <div class="text-center">
+                    <img src="{{ asset('imagesJu/horizon_logo_b.png') }}" alt="le logo de l'entreprise" class="mb-5"
+                         width="350px" height="196px">
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-9 mb-3">
+                        <input type="text" value="{{ last_username }}" name="username" id="inputUsername"
+                               class="form-control text-center loginInput py-2 mb-3" placeholder="Nom d'utilisateur" required autofocus>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-9 mb-3">
+                        <input type="password" name="password" id="inputPassword" placeholder="Mot de passe" class="mb-3 loginInput form-control text-center"
+                               autocomplete="current-password"
+                               required>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}"
+                    >
+                </div>
+                <div class="text-center">
+                <button class="btn btn-lg buttonStyle4 mb-4" type="submit">
+                    Se connecter
+                </button>
+                </div>
+            </div>
+        </div>
+
+
+        {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+        #}
+
+
+    </form>
+{% endblock %}

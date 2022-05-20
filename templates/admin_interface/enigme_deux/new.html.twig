@@ -1,0 +1,15 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Nouvelle Enigme Deux{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="card mt-5 col-6 offset-3 bg-light">
+            <h2 class="text-center my-5">Nouvelle énigme </h2>
+            {{ include('admin_interface/enigme_deux/_form.html.twig', {button_label: 'Créer'}) }}
+            <div class="text-center">
+                <a href="{{ path('app_enigme_deux_index') }}" class="btn buttonStyle3 mb-5">Retour</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base_ju.html.twig' %}
+
+{% block title %}Chrono{% endblock %}
+
+{% block body %}
+    <h1>Chrono</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ chrono.id }}</td>
+            </tr>
+            <tr>
+                <th>Heure</th>
+                <td>{{ chrono.heure }}</td>
+            </tr>
+            <tr>
+                <th>Minute</th>
+                <td>{{ chrono.minute }}</td>
+            </tr>
+            <tr>
+                <th>Seconde</th>
+                <td>{{ chrono.seconde }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_chrono_index') }}">back to list</a>
+
+    <a href="{{ path('app_chrono_edit', {'id': chrono.id}) }}">edit</a>
+
+    {{ include('admin_interface/chrono/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,5 @@
+<form method="post" class="col-1" action="{{ path('app_enigme_deux_delete', {'id': enigme2.id}) }}"
+      onsubmit="return confirm('Voulez vous vraiment supprimer cette énigme ?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ enigme2.id) }}">
+    <button class="btn"><i class="fa-solid fa-trash-can text-black"></i></button>
+</form>

@@ -1,0 +1,15 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Éditer une énigme{% endblock %}
+
+{% block body %}
+    <div class="container newE1 bgNewE1">
+        <div class="card mt-5 col-6 offset-3 bg-light">
+            <h2 class="text-center my-5">Éditer l'horloge </h2>
+            {{ include('admin_interface/chrono/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+            <div class="text-center">
+                <a href="{{ path('app_chrono_index') }}" class="btn buttonStyle2 mb-5">Retour</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

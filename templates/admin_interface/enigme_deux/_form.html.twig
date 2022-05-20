@@ -1,0 +1,29 @@
+{{ form_start(form) }}
+<div class="row d-flex justify-content-center">
+    <div class="col-3 text-center">
+        {{ form_label(form.ref) }}
+    </div>
+    <div class="col-3 mb-3">
+        {{ form_widget(form.ref) }}
+    </div>
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="col-3 text-center">
+        {{ form_label(form.question) }}
+    </div>
+    <div class="col-3 mb-3">
+        {{ form_widget(form.question) }}
+    </div>
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="col-3 text-center">
+        {{ form_label(form.answer) }}
+    </div>
+    <div class="col-3 mb-3">
+        {{ form_widget(form.answer) }}
+    </div>
+</div>
+<div class="text-center">
+    <button class="btn buttonStyle2 mb-3">{{ button_label}}</button>
+</div>
+{{ form_end(form) }}

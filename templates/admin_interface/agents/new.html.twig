@@ -1,0 +1,15 @@
+{% extends 'base_ju.html.twig' %}
+
+{% block title %}Nouvel Agent{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="card mt-5 col-6 offset-3 bg-light">
+            <h2 class="text-center my-5">Créer un nouvel Agent</h2>
+            {{ include('admin_interface/agents/_form.html.twig', {button_label: 'Créer'}) }}
+            <div class="text-center">
+                <a href="{{ path('app_agents_index') }}" class="btn buttonStyle1 mb-5">Retour</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

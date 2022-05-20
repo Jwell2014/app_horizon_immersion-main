@@ -1,0 +1,30 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Sessions{% endblock %}
+
+{% block body %}
+    <h1>Sessions</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ session.id }}</td>
+            </tr>
+            <tr>
+                <th>NomDeSession</th>
+                <td>{{ session.NomDeSession }}</td>
+            </tr>
+            <tr>
+                <th>EtatDeSession</th>
+                <td>{{ session.EtatDeSession }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_sessions_index') }}">back to list</a>
+
+    <a href="{{ path('app_sessions_edit', {'id': session.id}) }}">edit</a>
+
+    {{ include('admin_interface/sessions/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Document{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+    <h1 class="text-center">Document</h1>
+
+    <table class="table table-dark table-striped my-5">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ document.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ document.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ document.description }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td><img class="img-thumbnail w-25" src="{{ asset('images/document/' ~ document.contenu) }}"></td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ document.date ? document.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ document.category.nom}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="buttonCateg">
+        <button class="btn btn-secondary"><a href="{{ path('document_index') }}">Retour</a></button>
+
+        <button class="btn btn-warning"><a href="{{ path('document_edit', {'id': document.id}) }}">edit</a></button>
+
+        {{ include('document/_delete_form.html.twig') }}
+
+    </div>
+
+
+    </div>
+{% endblock %}

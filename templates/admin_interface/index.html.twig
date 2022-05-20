@@ -1,0 +1,60 @@
+{% extends 'base_admin.html.twig' %}
+
+
+{% block title %}Admin Back Office{% endblock %}
+
+{% block body %}
+    <div class="row m-0">
+        {{ parent() }}
+        <div class="col-10 p-0">
+            <div class="container  ">
+
+                <div class="baseMargin mb-3" >
+                    <div class="row g-0 col-12">
+                        <div class="col-md-4">
+                            <div class="card-body shadow me-5 mb-5">
+                                <div class="row justify-content-center mb-3">
+                                    <p class="col-4 align-items-center justify-content-center mx-auto my-auto"><i
+                                                class="cardIcon buttonStyle1 align-items-center justify-content-center mx-auto  px-4 pt-3 pb-3 fas fa-subway fa-2xl pt-1 mx-auto justify-content-start "></i>
+                                    </p>
+                                    <h5 class="col-8 card-title my-auto text-center">ACTE 1</h5>
+                                </div>
+                                    <div class="divider border-bottom mb-3"></div>
+                                <div class="text-center">
+                                <a href="{{ path('app_enigme_un_index') }}" class="btn buttonStyle1">Voir les énigmes de l'acte 1</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card-body shadow me-5 mb-5">
+                                <div class="row justify-content-center mb-3">
+                                    <p class="col-4 align-items-center justify-content-center mx-auto my-auto">
+                                        <i class="cardIcon buttonStyle2 px-4 pb-3 pt-3 fa-solid fa-2xl pt-1 mx-auto fa-building-columns"></i>
+                                    </p>
+                                    <h5 class="col-8 card-title my-auto text-center">ACTE 2</h5>
+                                </div>
+                                <div class="divider border-bottom mb-3"></div>
+                                <div class="text-center">
+                                    <a href="{{ path('app_enigme_deux_index') }}" class="btn buttonStyle2">Voir les énigmes de l'acte 2</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card-body shadow me-5 mb-5">
+                                <div class="row justify-content-center mb-3">
+                                    <p class="col-4 align-items-center justify-content-center mx-auto my-auto"><i class="cardIcon px-3 pt-3 pb-3 buttonStyle3 fa-solid fa-2xl pt-1 mx-auto fa-city"></i>
+                                    </p>
+                                    <h5 class="col-8 card-title my-auto text-center">ACTE 3</h5>
+                                </div>
+                                <div class="divider border-bottom mb-3"></div>
+                                <div class="text-center">
+                                    <a href="{{ path('app_enigme_trois_index') }}" class="btn buttonStyle3">Voir les énigmes de l'acte 3</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

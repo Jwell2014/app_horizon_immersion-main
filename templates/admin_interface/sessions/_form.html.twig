@@ -1,0 +1,171 @@
+{{ form_start(form) }}
+<div class="row d-flex justify-content-center">
+    <div class="col-4 text- ps-5">
+        {{ form_label(form.NomDeSession) }}
+    </div>
+    <div class="col-8 mb-3 px-5">
+        {{ form_widget(form.NomDeSession) }}
+    </div>
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="col-4 text-start ps-5">
+        {{ form_label(form.NombreParticipants) }}
+    </div>
+    <div class="col-8 mb-3 px-5">
+        <div class="row">
+            {{ form_widget(form.NombreParticipants) }}
+        </div>
+    </div>
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="col-4 text-start ps-5">
+        {{ form_label(form.EtatDeSession) }}
+    </div>
+    <div class="col-8 mb-3 px-5">
+        <div class="row">
+            {{ form_widget(form.EtatDeSession) }}
+        </div>
+    </div>
+<div class="container">
+    <div class="text-center my-3 shadow">
+        <div id="participants"
+             data-prototype="{{ form_row(form.users.vars.prototype)|e('html_attr') }}">
+            <div class="container">
+                <div class="row">
+                    <h4>
+                        {{ form_label(form.users) }}
+                    </h4>
+                    {{ form_widget(form.users) }}
+                </div>
+                <span class="row mx-5 d-flex  justify-content-center"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="text-center">
+    <button class="btn buttonStyle1 btn-lg mb-3">{{ button_label }}</button>
+</div>
+
+{{ form_end(form) }}
+
+<script>
+
+    nbParticipant = document.querySelector('#sessions_NombreParticipants');
+
+
+    nbParticipant.addEventListener('change', function () {
+        let form = this.closest("form");
+        let data = this.name + " = " + this.value;
+        console.log(data);
+        fetch(form.action, {
+            method: form.getAttribute("method"),
+            body: data,
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded; charset:utf-8"
+            }
+        })
+            .then(response => response.text())
+            .then(html => {
+                let content = document.createElement("html");
+                content.innerHTML = html;
+
+                let nouveauSelect = content.querySelector("#sessions_NombreParticipants")
+                console.log(nouveauSelect)
+            })
+    })
+
+
+    let collection, boutonAjout, span;
+    window.onload = () => {
+        collection = document.querySelector("#participants");
+        span = collection.querySelector("span");
+
+        boutonAjout8 = document.createElement("button");
+        boutonAjout8.className = "ajout-participant btn buttonStyle1 my-3 col-3";
+        boutonAjout8.innerText = "Créer 8 participants";
+
+        boutonAjout10 = document.createElement("button");
+        boutonAjout10.className = "ajout-participant btn buttonStyle2 my-3 mx-5 col-3"
+        boutonAjout10.innerText = "Créer 10 participants";
+
+        boutonAjout12 = document.createElement("button");
+        boutonAjout12.className = "ajout-participant btn buttonStyle3 my-3 col-3"
+        boutonAjout12.innerText = "Créer 12 participants";
+
+        let nouveauBouton = span.append(boutonAjout8);
+        let nouveauBouton2 = span.append(boutonAjout10);
+        let nouveauBouton3 = span.append(boutonAjout12);
+
+        collection.dataset.index = collection.querySelectorAll("input").length
+
+        boutonAjout8.addEventListener("click", function () {
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+        })
+        boutonAjout10.addEventListener("click", function () {
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+        })
+        boutonAjout12.addEventListener("click", function () {
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+            addButton(collection, nouveauBouton);
+        })
+    }
+
+    function addButton(collection, nouveauBouton) {
+        let prototype = collection.dataset.prototype;
+        let index = collection.dataset.index;
+        prototype = prototype.replace(/__name__/g, index);
+
+        let content = document.createElement("html");
+        content.innerHTML = prototype;
+
+        let newForm = content.querySelector("div");
+        //
+        // let boutonSuppr = document.createElement("button");
+        // boutonSuppr.type = "button";
+        // boutonSuppr.className = "btn buttonStyle3 col-12 mb-5";
+        // boutonSuppr.id = "delete-participant-" + index;
+        // boutonSuppr.innerText = "Supprimer ce participant";
+        //
+        // newForm.append(boutonSuppr);
+
+        collection.dataset.index++;
+
+        let boutonAjout = collection.querySelector(".ajout-participant");
+
+        span.insertBefore(newForm, boutonAjout8);
+
+        // boutonSuppr.addEventListener("click", function () {
+        //     this.previousElementSibling.parentElement.remove();
+        // })
+
+    }
+</script>
+
+
+

@@ -1,0 +1,74 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Chrono{% endblock %}
+
+{% block body %}
+    <div class="row m-0">
+        {{ parent() }}
+        <div class="col-10 p-0">
+            <div class="container">
+                <h2 class="text-center addRiddle1 mb-3">Réglage de l'horloge</h2>
+
+                <table class="table">
+                    <thead class="tableHeadEnigme1 text-center">
+                    <tr>
+                        <th>Heure</th>
+                        <th>Minute</th>
+                        <th>Seconde</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for chrono in chronos %}
+                        <tr class="text-center">
+                            <td class="bg-light">{{ chrono.heure }}</td>
+                            <td class="bg-light">{{ chrono.minute }}</td>
+                            <td class="bg-light">{{ chrono.seconde }}</td>
+                            <td class="bg-light">
+                                <a href="{{ path('app_chrono_edit', {'id': chrono.id}) }}"><i
+                                            class="fas fa-edit text-black me-3"></i></a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <h2 class="text-center addRiddle1 mb-3">Visibilité des dossiers</h2>
+
+                <table class="table">
+                    <thead class="tableHeadEnigme2 text-center">
+                    <tr>
+                        <th>Nom du dossier</th>
+                        <th>Visibilité</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for dossier in dossiers %}
+                        <tr class="text-center">
+                            <td class="bg-light">{{ dossier.nom }}</td>
+                            <td class="bg-light">{% if dossier.isActive == 1 %}Visible pour les participants {% else %} Non visible pour les participants{% endif %}</td>
+                            <td class="bg-light">
+                                <div class="row d-flex justify-content-center">
+                                <a class="col-1 d-flex align-items-center" href="{{ path('app_dossier_edit', {'id': dossier.id}) }}"><i
+                                            class="fas fa-edit text-black me-3"></i></a>
+                                {{ include('dossier/_delete_form.html.twig') }}
+                                </div>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">no records found</td>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

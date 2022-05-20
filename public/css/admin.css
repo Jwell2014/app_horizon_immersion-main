@@ -1,0 +1,58 @@
+.titreCateg{
+    margin: 50px;
+    background-color: ghostwhite;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.imgCateg{
+    padding: .25rem;
+    background-color: #fff;
+    border: 40px solid #dee2e6;
+    border-radius: 1.25rem;
+    max-width: 24%;
+    height: auto;
+    position: relative;
+    left: 35%;
+}
+
+.buttonCateg {
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 50px;
+}
+
+.buttonCateg a{
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+
+.deleteCateg{
+    padding: 10px;
+    height: 59px;
+}
+
+.pCateg{
+    position: absolute;
+    right: 50%;
+    top: 17%;
+}
+
+.contentCateg{
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.btnAction{
+    text-align: center;
+}
+
+.btnAction .btn{
+    margin: 20px;
+}
+
+

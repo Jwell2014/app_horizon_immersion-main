@@ -1,0 +1,62 @@
+{% extends 'base_admin.html.twig' %}
+
+
+{% block title %}Participants{% endblock %}
+
+{% block body %}
+    <div class="row m-0 p-0">
+        {{ parent() }}
+        <div class="col-10 m-0 p-0">
+            <div class="container">
+                <div class="accordion " id="accordion">
+                    <div class="accordion-item border-0">
+                        {% for user in users %}
+                            {% if user.session.id is defined %}
+                                <h2 class="accordion-header my-2 "
+                                    id="heading{% if user.session.id is defined %}{{ user.session.id }}{% endif %}">
+                                    <button class="accordion-button buttonStyleAlt2 collapsed" type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#collapse{% if user.session.id is defined %}{{ user.session.id }}{% endif %}"
+                                            aria-expanded="false"
+                                            aria-controls="collapse{% if user.session.id is defined %}{{ user.session.id }}{% endif %}">
+                                        {% if user.session.id is defined %}{{ user.session.nomDeSession }}{% endif %}
+                                    </button>
+                                </h2>
+                            {% endif %}
+                                <div id="collapse{% if user.session.id is defined %}{{ user.session.id }}{% endif %}"
+                                     class="accordion-collapse collapse"
+                                     aria-labelledby="heading{% if user.session.id is defined %}{{ user.session.id }}{% endif %}"
+                                     data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <h3 class="text-center">Participants</h3>
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">Nom du participant</th>
+                                                <th scope="col">Mot de passe</th>
+                                                <th scope="col">Actions</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for participant in participants %}
+                                                {% if user.session.id is defined and user.session.id == participant.sessionId %}
+                                                <tr>
+                                                    <th>{{ participant.username }}</th>
+                                                    <td>{{ participant.password }}</td>
+                                                    <td><a href=""
+                                                           class="col-1 d-flex align-items-center"><i
+                                                                    class="fas fa-edit text-black me-3"></i></a></td>
+                                                </tr>
+                                                {% endif %}
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

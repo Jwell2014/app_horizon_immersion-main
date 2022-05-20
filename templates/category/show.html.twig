@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Category{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <h1 class="titreCateg">Category</h1>
+
+
+    <div class="contentCateg">
+               <img class="imgCateg" src="{{ asset('images/category/' ~ category.image) }}">
+
+        <p class="pCateg">{{ category.nom }}</p>
+
+    </div>
+
+
+
+
+
+
+<div class="buttonCateg">
+    <button class="btn btn-secondary"><a href="{{ path('category_index') }}">Retour</a></button>
+
+    <button class="btn btn-warning"><a href="{{ path('category_edit', {'id': category.id}) }}">edit</a></button>
+
+  {{ include('category/_delete_form.html.twig') }}
+
+</div>
+
+
+    </div>
+{% endblock %}

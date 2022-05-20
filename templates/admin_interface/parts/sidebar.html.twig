@@ -1,0 +1,72 @@
+<div id="sidebar" class="col-2 p-0 vh-100 shadow-lg sticky-top">
+    <div class="d-flex flex-column justify-content-between vh-100">
+        <div id="sidebarInfo">
+            <h5 class="text-center py-3 px-1 sidebarConnected">{{ 'Connecté en tant que'|upper }}</h5>
+            <h6 class="text-center"><a class="text-decoration-none text-dark"
+                                       href="{{ path('app_admin_interface') }}"><i class="fa-solid fa-house me-3"></i>{{ app.user.username }}
+                    </a></h6>
+
+            <div class="divider border-bottom mt-5"></div>
+
+            <ul class=" navList my-3 nav d-flex flex-column align-items-start justify-content-center align-items-center navUl">
+                <li class="nav-item navSidebar1  {% if app.request.requesturi == "/enigmeUn/"%} buttonNavStyle1{% endif %} mb-3">
+                    <a href="{{ path("app_enigme_un_index") }}" class="nav-link d-flex text-dark {% if app.request.requesturi == "/enigmeUn/"%} text-white{% endif %} mx-auto my-auto">
+                        <i class="fas fa-subway fa-2xl pt-1 mx-auto justify-content-start "></i>
+                        <p class="mb-0 d-flex align-items-center sidebarTitle ps-3">ACTE 1</p>
+                    </a>
+                </li>
+                <li class=" nav-item navSidebar2 {% if app.request.requesturi == "/enigmeDeux/"%} buttonNavStyle2{% endif %} mb-3">
+                    <a href="{{ path("app_enigme_deux_index") }}" class="nav-link d-flex text-dark {% if app.request.requesturi == "/enigmeDeux/"%} text-white{% endif %} mx-auto my-auto">
+                        <i class="fa-solid fa-2xl pt-1 mx-auto fa-building-columns"></i>
+                        <p class="mb-0 d-flex align-items-center sidebarTitle ps-3">ACTE 2</p>
+                    </a>
+                </li>
+                <li class="nav-item navSidebar3  {% if app.request.requesturi == "/enigmeTrois/"%} buttonNavStyle3 {% endif %}}">
+                    <a href="{{ path("app_enigme_trois_index") }}" class="nav-link d-flex text-dark {% if app.request.requesturi == "/enigmeTrois/"%} text-white{% endif %} mx-auto my-auto">
+                        <i class="fa-solid fa-2xl pt-1 mx-auto fa-city"></i>
+                        <p class="mb-0 d-flex align-items-center sidebarTitle ps-3">ACTE 3</p>
+                    </a>
+                </li>
+            </ul>
+            <div class="divider border-bottom mt-5"></div>
+            <ul class="navList my-3 nav d-flex flex-column justify-content-center align-items-start  align-items-center navUl">
+                <li class="nav-item navSidebar1 {% if app.request.requesturi == "/sessions/"%} buttonNavStyle1{% endif %}  mb-3">
+                    <a href="{{ path("app_sessions_index") }}" class="nav-link d-flex text-dark {% if app.request.requesturi == "/sessions/"%} text-white{% endif %} mx-auto my-auto">
+                        <i class="fa-solid fa-2xl pt-1 mx-auto fa-list justify-content-end"></i>
+                        <p class="mb-0 d-flex align-items-center sidebarTitle ps-3">SESSIONS</p>
+                    </a>
+                </li>
+                <li class=" nav-item navSidebar2  {% if app.request.requesturi == "/participants/"%} buttonNavStyle2 {% endif %} mb-3">
+                    <a href="{{ path("app_participants_index") }}" class="nav-link d-flex text-dark {% if app.request.requesturi == "/participants/"%} text-white{% endif %} mx-auto my-auto">
+                        <i class="fa-solid fa-user fa-2xl mx-auto pt-1 "></i>
+                        <p class="mb-0 d-flex align-items-center sidebarTitle ps-3">PARTICIPANTS</p>
+                    </a>
+                </li>
+                <li class="nav-item navSidebar3 {% if app.request.requesturi == "/agents/"%} buttonNavStyle3 {% endif %}}">
+                    <a href="{{ path("app_agents_index") }}" class="nav-link d-flex text-dark {% if app.request.requesturi == "/agents/"%} text-white{% endif %} mx-auto my-auto">
+                        <i class="fa-solid fa-user-secret fa-2xl pt-1 mx-auto"></i>
+                        <p class="mb-0 d-flex align-items-center sidebarTitle ps-3">AGENTS</p>
+                    </a>
+                </li>
+            </ul>
+            <div class="divider border-bottom mt-5"></div>
+            <ul class="navList my-3 nav d-flex flex-column justify-content-center align-items-start  align-items-center navUl">
+                <li class="nav-item navSidebar1  mb-3">
+                    <a href="{{ path('app_chrono_index') }}" class="nav-link d-flex text-dark mx-auto my-auto">
+                        <i class="fa-solid fa-gear fa-2xl pt-1 mx-auto justify-content-end"></i>
+                        <p class="mb-0 d-flex align-items-center sidebarTitle ps-3">PARAMÈTRES GLOBAUX</p>
+                    </a>
+                </li>
+                <li class="nav-item navSidebar1  mb-3">
+                    <a href="{{ path('app_default') }}" class="nav-link d-flex text-dark mx-auto my-auto">
+                        <i class="fa-solid fa-house fa-2xl pt-1 mx-auto justify-content-end"></i>
+                        <p class="mb-0 d-flex align-items-center sidebarTitle ps-3">INTERFACE PARTICIPANTS</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <a href="{{ path("app_logout") }}"
+           class="text-light text-decoration-none py-3 text-center font-weight-bold w-100 {% if app.request.requesturi == "/enigmeUn/" or app.request.requesturi == "/sessions/" %} decoButton1 {% elseif app.request.requesturi == "/enigmeDeux/" or app.request.requesturi == "/participants/" %} decoButton2 {% else %} decoButton3 {% endif %}"><i class="fa-solid fa-power-off me-3"></i><span
+                    class="sidebarTitle ">{{ 'Déconnexion'|upper }}</span></a>
+    </div>
+</div>
