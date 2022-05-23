@@ -89,7 +89,7 @@ document.querySelector("#check-icon").addEventListener("click", () => {
   }
 });*/
 
-// Permet de définir notre note a créer
+// Allows to define our note to create
 createStickyNote = (text, style) => {
 	let note = document.createElement("div");
 	note.className = "note";
@@ -98,7 +98,6 @@ createStickyNote = (text, style) => {
 	let optionButton = document.createElement('button');
 	optionButton.className = 'option-button';
 	optionButton.onmousedown = noteMenu;
-	optionButton.ontouchstart = noteMenu;
 	let optionIcon = document.createElement('img');
 	optionIcon.src = 'images/palette.svg';
 	optionIcon.className = 'option-icon';
@@ -109,10 +108,6 @@ createStickyNote = (text, style) => {
 	let deleteButton = document.createElement('button');
 	deleteButton.className = 'delete-note';
 	deleteButton.onmousedown = (() => {setTimeout(deleteNote.bind(deleteButton), 155);}); //Add a delay to let user see button press
-	/*let deleteText = document.createElement('p');
-    deleteText.textContent = 'Delete';
-    deleteText.className = 'delete-text';
-    deleteButton.appendChild(deleteText);*/
 	let deleteIcon = document.createElement('img');
 	deleteIcon.src = 'images/trash.svg';
 	deleteIcon.className = 'delete-icon';
@@ -141,29 +136,30 @@ createStickyNote = (text, style) => {
 	noteText.style.textAlign = style.textAlign
 	noteText.style.textTransform = style.textTransform
 
-
 	details.appendChild(noteText);
-
-
-
 
 	if (index > random_colors.length - 1)
 		index = 0;
 
-	// Permet de definir un margin colors et degres aléatoire.
-	note.setAttribute("style", `background-color:${random_colors[index++]}; transform:${random_degree[Math.floor(Math.random() * random_degree.length)]}; position: absolute`);
+	// Allows you to define a random margin colors and degrees.
+	note.setAttribute("style", `background-color:${random_colors[index++]}; 
+	transform:${random_degree[Math.floor(Math.random() * random_degree.length)]}; 
+	position: absolute`);
 	// margin:${random_margin[Math.floor(Math.random() * random_margin.length)]};
 
-	// Permet de bouger les post-it
+	// Allows you to move the post-its
 	$(note).draggable({stack: "#set div"});
 
 
-	// Permet au survol de la souris d'agrandir le post-it
+
+
+
+	// Allows mouse over to enlarge the post-it
 	note.addEventListener("mouseenter", function () {
 		note.style.transform = "scale(1.2)";
 	});
 
-	// Permet au depart de la souris de rétrécir le post-it
+	// Allows the mouse to shrink the post-it
 	note.addEventListener("mouseleave", function () {
 		note.style.transform = "scale(1)";
 	});
@@ -194,8 +190,6 @@ createStickyNote = (text, style) => {
  noteMenu crée le menu des options de la note.
  */
 function noteMenu() {
-	console.log('option button pressed');
-
 	let menus = document.getElementsByClassName('note-menu'); // Get all menus
 
 	for (let i = 0; i < menus.length; i++) {
@@ -226,18 +220,13 @@ function noteMenu() {
 		colorOption.ontouchstart = setColor;
 		noteMenu.appendChild(colorOption);
 	});
-
-
-
 	this.parentNode.appendChild(noteMenu); // Add the menu to the note
-
 }
 
 /**
- * setColor définit la couleur d'une note à la couleur du bouton pressé.
+ * setColor sets the color of a note according to the button pressed.
  */
 function setColor() {
-	console.log('color button pressed');
 
 	let note = this.parentNode.parentNode;
 	let newColor = this.style.backgroundColor;
@@ -246,9 +235,9 @@ function setColor() {
 }
 
 /**
- * clearMenus efface tous les menus que la souris ne survole pas.
- * @param {MouseEvent} event
- */
+//  * clearMenus deletes all menus that the mouse does not hover over.
+//  * @param {MouseEvent} event
+//  */
 function clearMenus(event) {
 	console.log('Clear menus');
 	console.log('ClientX: ' + event.clientX);
