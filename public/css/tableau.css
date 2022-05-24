@@ -218,13 +218,31 @@ body{
   padding-top: 5px;
 }
 
-@media(max-width:1280px){
-  .container{
-    width: 100%;
+/*xxl*/
+@media all and (min-width: 1280px) and (max-width: 1900px){
+
+  .modal-lg, .modal-xl{
+    max-width: 100%;
+  }
+  .modal-content1{
+    width:auto !important;
+    margin: auto;
   }
 }
 
-@media(max-width:768px){
+/*xl*/
+@media screen and (max-width:1280px){
+  .modal-lg, .modal-xl{
+    max-width: 100%;
+  }
+  .modal-content1{
+    width:auto !important;
+    margin: auto !important;
+  }
+}
+
+/*lg*/
+@media screen and (max-width:768px){
   #header{
     padding: 20px;
     gap: 10px;
@@ -232,4 +250,21 @@ body{
     align-items: center;
     text-align: center;
   }
+}
+
+/*md*/
+@media screen and (max-width: 576px) {
+
+
+}
+
+/*sm and lower*/
+@media screen and (max-width: 480px){
+
+
+
+}
+
+@media screen and (max-width: 240px){
+
 }
