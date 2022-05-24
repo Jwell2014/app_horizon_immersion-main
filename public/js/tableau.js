@@ -50,7 +50,7 @@ document.onmousedown = clearMenus;
 
 window.onload = document.querySelector("#user_input").select();
 
-// Le button qui gère la création de post-it
+// The button that manages the creation of post-its
 document.querySelector(".add_note").addEventListener("click", () => {
 	document.querySelector("#modal").style.display = "block";
 	document.getElementById("user_input").style.width = "276px";
@@ -107,7 +107,7 @@ createStickyNote = (text, style) => {
 	// Create a delete button
 	let deleteButton = document.createElement('button');
 	deleteButton.className = 'delete-note';
-	deleteButton.onmousedown = (() => {setTimeout(deleteNote.bind(deleteButton), 155);}); //Add a delay to let user see button press
+	deleteButton.onmousedown = (() => {setTimeout(deleteNote.bind(deleteButton), 355);}); //Add a delay to let user see button press
 	let deleteIcon = document.createElement('img');
 	deleteIcon.src = 'images/trash.svg';
 	deleteIcon.className = 'delete-icon';
@@ -123,7 +123,7 @@ createStickyNote = (text, style) => {
 	let noteText = document.createElement("textarea");
 	noteText.textContent = text;
 
-	document.getElementById("user_input").style.width = "60px";
+	document.getElementById("user_input").style.width = "70px";
 	document.getElementById("user_input").style.height = "50px";
 	document.getElementById("user_input").style.fontSize = "10px";
 
@@ -147,11 +147,9 @@ createStickyNote = (text, style) => {
 	position: absolute`);
 	// margin:${random_margin[Math.floor(Math.random() * random_margin.length)]};
 
+
 	// Allows you to move the post-its
 	$(note).draggable({stack: "#set div"});
-
-
-
 
 
 	// Allows mouse over to enlarge the post-it
@@ -167,7 +165,7 @@ createStickyNote = (text, style) => {
 
 	document.querySelector("#all_notes").appendChild(note);
 
-	// Permet d'efface le texte et le style un fois le post-it validé.
+	// Allows you to erase the text and the style once the post-it is validated.
 	document.getElementById("user_input").value = '';
 	document.getElementById("user_input").style.fontWeight = "normal";
 	document.getElementById("user_input").style.textAlign = "left";
@@ -175,7 +173,7 @@ createStickyNote = (text, style) => {
 	document.getElementById("user_input").style.textTransform = "capitalize";
 
 	/**
-	 * deleteNote supprime une note dont le bouton de suppression a été actionné
+	 * deleteNote deletes a note whose delete button has been pressed
 	 */
 	function deleteNote() {
 		note.remove();
