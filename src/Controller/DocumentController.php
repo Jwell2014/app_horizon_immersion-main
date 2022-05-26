@@ -43,7 +43,7 @@ class DocumentController extends AbstractController
             $safeFilename = $slugger->slug($originalFilename);
             $newFilename = $safeFilename.'-'.uniqid().'.'.$contenu->guessExtension();
 
-            // Move the file to the directory where brochures are stored
+            // Move the file to the directory where the contents are stored.
 
             $contenu->move(
                 $this->getParameter('document_image'),
@@ -51,7 +51,6 @@ class DocumentController extends AbstractController
             );
 
             $document->setContenu($newFilename);
-
 
             $entityManager->persist($document);
             $entityManager->flush();

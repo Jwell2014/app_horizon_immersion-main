@@ -130,4 +130,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->session_id = $session_id;
     }
+
+    public function hasRole($role){
+        $exit = false;
+        foreach ($this->roles as $roleElem){
+            if ($roleElem == $role){
+                $exit = true;
+            }
+        }
+        return $exit;
+    }
 }
