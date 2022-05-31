@@ -111,6 +111,7 @@ document.form_main.pause.onclick = () => pause();
 document.form_main.reset.onclick = () => reset();
 
 function start() {
+    console.log("ok");
     pause();
     cron = setInterval(() => {
         timer();
@@ -118,6 +119,7 @@ function start() {
 }
 
 function pause() {
+    console.log('ok');
     clearInterval(cron);
 }
 
