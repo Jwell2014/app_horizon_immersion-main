@@ -1,9 +1,13 @@
 const modalBtn = document.querySelector('[data-toggle=modalChat]');
 let modal = document.querySelector('#modalChat');
 
+let openModal = false;
+
 modalBtn.addEventListener('click', () => {
+    openModal = !openModal
     // on affiche la modal
-    modal.classList.add('show');
+    openModal ?  modal.classList.add('show') : modal.classList.remove('show');
+
 });
 
 document.querySelector('.modalChat-close').addEventListener('click', () =>{
