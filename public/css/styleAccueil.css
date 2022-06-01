@@ -878,3 +878,10 @@ a.active{
 /*}*/
 
 
+@media screen and (max-width: 900px){
+
+    .imgCenter{
+        left: 200px;
+        top: 147px;
+    }
+}
