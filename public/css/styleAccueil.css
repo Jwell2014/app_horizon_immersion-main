@@ -485,6 +485,36 @@ a.active{
     height: 45px;
 }
 
+.tskbStartMenu {
+    background-color: #566D7E !important;
+    top: -375px;
+    width: 200%;
+    height: 375px;
+    left: -12px;
+    border-radius: 0 10px 0 0;
+    font-family: 'Cairo', sans-serif;
+}
+
+#tskbLogo img {
+    height: 50px;
+    position: absolute;
+    top: 3px;
+}
+
+#tskbLogo img:hover {
+    cursor: pointer;
+    background-color: #354156;
+}
+
+.bb{
+    border-bottom: 1px solid #363636!important;
+
+}
+
+.tskbStartMenuItem:hover{
+    cursor: pointer;
+    background-color: #354156;
+}
 /*!*Station de metro*!*/
 
 /*#main {*/

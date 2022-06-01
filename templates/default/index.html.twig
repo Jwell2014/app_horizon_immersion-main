@@ -29,7 +29,7 @@
 
                                 <h2>Document {{ category.nom }}</h2>
                                 {% for document in documents %}
-                                {% if category.id == document.category.id %}
+                                {% if document.category.id == category.id %}
 
                                 <div class="linkImage">
                                     <p>{{ dump (category.id) }}</p>
@@ -264,11 +264,23 @@
         <div class="row">
 
             <div class="col-sm-2">
-                <div class="rectangle">
-                    <a  href="{{ path('chat') }}">
-                        <img src="{{ asset("/images/logoRond.svg") }}">
-                        <h5>CONTINUER</h5>
-                    </a>
+                <div id="tskbLogo" class="position-absolute">
+                 <div class="tskbStartMenu position-relative invisible"> {# invisible#}
+                        <div class="d-flex flex-column justify-content-between h-100">
+                            <div class="tskbStartMenuItem d-flex py-3 pl-3 font-weight-bold align-items-center bb">
+                                <i class="bi bi-list fa-2x mr-3 text-black mx-3"></i>DÉMARRER
+                            </div>
+                            <div class="bb">
+                                <div class="tskbStartMenuItem userInfo d-flex my-3 align-items-center ">
+                                    <i class="bi bi-person-circle fa-2x mx-3 text-success"></i>{{ app.user.username|capitalize }}
+                                </div>
+                                <a href="{{ path('app_logout') }}" class="tskbStartMenuItem d-flex my-3 align-items-center text-decoration-none text-danger">
+                                    <i class="bi bi-power fa-2x mx-3 text-danger"></i>DÉCONNEXION
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="{{ asset('/images/horizon_logo.png') }}" alt="Démarrer" class="px-4 imgMenu" title="Démarrer">
                 </div>
             </div>
 

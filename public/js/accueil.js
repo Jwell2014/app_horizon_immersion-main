@@ -1,3 +1,5 @@
+
+// PREMIERE NAV
 // const btn = document.querySelector('#docImg');
 // const text = document.querySelector('.nav2');
 // const btn2 = document.querySelector('#info');
@@ -26,6 +28,8 @@
 //     btn2.classList.remove('active');
 // });
 
+
+// DEUXIÈME NAV
 const openNavCateg = document.querySelector('.iconeDoc');
 const dossier = document.querySelector('.sub-nav');
 const openDocs = document.querySelectorAll('.openDocument');
@@ -186,6 +190,22 @@ function timer() {
 function returnData(input) {
     return input >= 10 ? input : `0${input}`
 }
+
+
+// Partie de la modal du menu démarrer
+
+const openMenu = document.querySelector('.imgMenu');
+const menu = document.querySelector('.tskbStartMenu');
+
+let invisible = true;
+
+openMenu.addEventListener('click', () => {
+    console.log('ok')
+    invisible = !invisible;
+
+    invisible ? menu.classList.remove('invisible') : menu.classList.add('invisible');
+
+})
 
 
 // // Partir metro
