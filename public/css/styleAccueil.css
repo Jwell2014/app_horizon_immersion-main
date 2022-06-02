@@ -531,10 +531,10 @@ a.active{
 
 
 
-@media screen and (max-width: 900px){
+@media screen and (min-width: 500px) and (max-width: 900px){
 
     .imgCenter{
-        left: 200px;
+        left: 5%;
         top: 147px;
     }
 }
