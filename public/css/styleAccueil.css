@@ -534,7 +534,7 @@ a.active{
         right: 25%;
     }
 }
-@media screen and (min-width: 1001px) and (max-width: 1300px ) {
+@media screen and (min-width: 901px) and (max-width: 1300px ) {
     .imgCenter{
         right: 10%;
     }
@@ -542,6 +542,7 @@ a.active{
     .timer{
         position: absolute;
         right: 0;
+        top: 0;
     }
 
     #chrono{
@@ -552,7 +553,7 @@ a.active{
     }
 }
 
-@media screen and (min-width: 500px) and (max-width: 1000px){
+@media screen and (min-width: 500px) and (max-width: 900px){
 
     .imgCenter{
         top: 20%;
@@ -588,7 +589,6 @@ a.active{
     }
 
     .logoFooterR {
-        flex-direction: column;
     }
 
 }
