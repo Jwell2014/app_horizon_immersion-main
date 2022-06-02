@@ -529,12 +529,12 @@ a.active{
 }
 
 
-@media screen and (min-width: 1301px) {
+@media screen and (min-width: 1100px) {
     .imgCenter{
         right: 25%;
     }
 }
-@media screen and (min-width: 901px) and (max-width: 1300px ) {
+@media screen and (min-width: 980px) and (max-width: 1100px){
     .imgCenter{
         right: 10%;
     }
@@ -553,7 +553,7 @@ a.active{
     }
 }
 
-@media screen and (min-width: 500px) and (max-width: 900px){
+@media screen and (min-width: 500px) and (max-width: 980px){
 
     .imgCenter{
         top: 20%;
@@ -589,6 +589,7 @@ a.active{
     }
 
     .logoFooterR {
+        background-color: #566D7E !important;
     }
 
 }
