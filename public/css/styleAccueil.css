@@ -269,10 +269,10 @@ a{
     height: 45px;
 }
 
-a:hover{
+.chat:hover{
     cursor: pointer;
-    background-color: #5e696d;
-
+    background-color:white !important;
+    height: 45px;
 }
 
 .imgTimer{
@@ -494,7 +494,7 @@ a.active{
 .tskbStartMenu {
     background-color: #566D7E !important;
     top: -375px;
-    width: 200%;
+    width: 270%;
     height: 375px;
     left: -12px;
     border-radius: 0 10px 0 0;
@@ -503,17 +503,20 @@ a.active{
 
 #tskbLogo{
     height: 100%;
+    width: 5%;
 }
 
 #tskbLogo img {
-    height: 50px;
+    height: 40px;
     position: absolute;
     top: 3px;
+    margin-top: 6px;
 }
 
-#tskbLogo img:hover {
+#tskbLogo:hover {
     cursor: pointer;
     background-color: #354156;
+    border-radius: 5px;
 }
 
 .bb{
@@ -525,357 +528,7 @@ a.active{
     cursor: pointer;
     background-color: rgba(15, 15, 15, 0.55);
 }
-/*!*Station de metro*!*/
 
-/*#main {*/
-/*    background: url(/build/images/bg.4375c7b3.png) no-repeat 50% fixed;*/
-/*    -webkit-background-size: cover;*/
-/*    -moz-background-size: cover;*/
-/*    -o-background-size: cover;*/
-/*    background-size: cover;*/
-/*    min-height: calc(100vh - 50px)*/
-/*}*/
-
-/*#main #dsktpContainer {*/
-/*    height: calc(100vh - 50px);*/
-/*    width: fit-content*/
-/*}*/
-
-/*.taskbar {*/
-/*    background-color: #243040;*/
-/*    height: 50px;*/
-/*    user-select: none*/
-/*}*/
-
-/*#tskbLogo img {*/
-/*    height: 50px;*/
-/*    position: absolute;*/
-/*    top: 0*/
-/*}*/
-
-/*#tskbLogo img:hover {*/
-/*    background-color: #354156;*/
-/*    cursor: pointer*/
-/*}*/
-
-/*.tskbStartMenu {*/
-/*    background-color: #2b3448;*/
-/*    height: 375px;*/
-/*    top: -375px;*/
-/*    width: 170%*/
-/*}*/
-
-/*.tskbStartMenuItem:hover {*/
-/*    background-color: #3e4762;*/
-/*    cursor: pointer;*/
-/*    transition: background-color .25s ease-out*/
-/*}*/
-
-/*body {*/
-/*    overflow-y: hidden !important*/
-/*}*/
-
-/*.dsktpSoftwareGroup {*/
-/*    border: 1px solid transparent;*/
-/*    height: 116px;*/
-/*    user-select: none;*/
-/*    width: 116px;*/
-/*    z-index: 1*/
-/*}*/
-
-/*.dsktpSoftwareGroup img {*/
-/*    height: 65px*/
-/*}*/
-
-/*.dsktpSoftwareGroup:hover {*/
-/*    background-color: hsla(0, 0%, 96%, .1);*/
-/*    border-color: hsla(0, 0%, 100%, .2);*/
-/*    cursor: pointer*/
-/*}*/
-
-/*#windowsContainer {*/
-/*    left: 50%;*/
-/*    top: 50%;*/
-/*    transform: translate(-49%, -53%);*/
-/*    width: 93%*/
-/*}*/
-
-/*.appWindow {*/
-/*    background-color: #fff;*/
-/*    -webkit-box-shadow: 0 0 5px 1px rgba(0, 0, 0, .84);*/
-/*    -moz-box-shadow: 0 0 5px 1px rgba(0, 0, 0, .84);*/
-/*    box-shadow: 0 0 5px 1px rgba(0, 0, 0, .84);*/
-/*    height: 90vh;*/
-/*    position: absolute;*/
-/*    user-select: none;*/
-/*    z-index: -10*/
-/*}*/
-
-/*.appHeader {*/
-/*    background-color: #2f373e !important*/
-/*}*/
-
-/*.appAlerts, .appContent {*/
-/*    height: calc(100% - 40px)*/
-/*}*/
-
-/*.appAlertsContent {*/
-/*    position: absolute;*/
-/*    top: 50%;*/
-/*    transform: translateY(-50%);*/
-/*    width: 100%*/
-/*}*/
-
-/*#tskbInfos img {*/
-/*    height: 20px;*/
-/*    width: 20px*/
-/*}*/
-
-/*#tskbInfoTime {*/
-/*    border-right: 1px solid dimgray*/
-/*}*/
-
-/*#tskbInfos #tskbInfoTime:hover, #tskbInfos .tskbInfosIcon:hover {*/
-/*    background-color: #364556;*/
-/*    cursor: pointer;*/
-/*    transition: background-color .25s ease-out*/
-/*}*/
-
-/*.appHeader img {*/
-/*    height: 20px;*/
-/*    width: 20px*/
-/*}*/
-
-/*.appHeaderButtons img {*/
-/*    height: 15px;*/
-/*    width: 15px*/
-/*}*/
-
-/*.appHeaderIcon:hover {*/
-/*    background-color: #4d5154;*/
-/*    transition: background-color .25s ease-out*/
-/*}*/
-
-/*.appHeaderIcon:nth-child(3):hover {*/
-/*    background-color: #ea2929;*/
-/*    transition: background-color .25s ease-out*/
-/*}*/
-
-/*.stationName {*/
-/*    color: #000;*/
-/*    font-size: small;*/
-/*    font-weight: 300;*/
-/*    text-align: start;*/
-/*    transform: rotate(-45deg)*/
-/*}*/
-
-/*.stationIcon {*/
-/*    width: 5%;*/
-/*    z-index: 1*/
-/*}*/
-
-/*.stationIcon i {*/
-/*    color: #f9cc01;*/
-/*    font-size: 1.75rem*/
-/*}*/
-
-/*.stationIcon:first-child i {*/
-/*    color: #cd2020*/
-/*}*/
-
-/*.metroLine .mt-3 {*/
-/*    width: 5%*/
-/*}*/
-
-/*.metroStations .progress {*/
-/*    height: 9px;*/
-/*    margin-top: -20px*/
-/*}*/
-
-/*.metroStations .progress, .metroStations .progressPastDist {*/
-/*    background-color: #f9cc01*/
-/*}*/
-
-/*.progressTrain {*/
-/*    background-color: #cd2020 !important;*/
-/*    border-radius: 3px*/
-/*}*/
-
-/*.metroStations .vl {*/
-/*    border-left: 2px solid #c3cac3;*/
-/*    height: 35px;*/
-/*    left: 50%;*/
-/*    margin-left: -2px;*/
-/*    top: -5px*/
-/*}*/
-
-/*#riddleInput {*/
-/*    color: #629dda;*/
-/*    font-size: xx-large*/
-/*}*/
-
-/*#riddleInput, #riddleInput:focus {*/
-/*    border-color: #fff;*/
-/*    box-shadow: 0 0 0 .2rem rgba(140, 139, 135, .25)*/
-/*}*/
-
-/*#currentStep {*/
-/*    text-transform: capitalize*/
-/*}*/
-
-/*#riddleInputResult {*/
-/*    height: 24px*/
-/*}*/
-
-/*#riddleSubmit {*/
-/*    background-color: #629dda*/
-/*}*/
-
-/*#riddleSubmit:hover {*/
-/*    background-color: #377eb8*/
-/*}*/
-
-/*.speedNumber {*/
-/*    color: #629dda*/
-/*}*/
-
-/*#trainSwitch {*/
-/*    width: fit-content*/
-/*}*/
-
-/*#trainSwitch i {*/
-/*    animation: trainSwitch .7s ease-in-out infinite alternate;*/
-/*    -webkit-animation: trainSwitch .7s ease-in-out infinite alternate*/
-/*}*/
-
-/*#trainSwitch i:hover {*/
-/*    color: #980313 !important;*/
-/*    cursor: pointer*/
-/*}*/
-
-/*@keyframes trainSwitch {*/
-/*    0% {*/
-/*        transform: scale(.7)*/
-/*    }*/
-/*    to {*/
-/*        transform: scale(1)*/
-/*    }*/
-/*}*/
-
-/*#riddle_question::placeholder {*/
-/*    color: #9d9a9a*/
-/*}*/
-
-/*#fileExplorerContent {*/
-/*    height: calc(90vh - 40px)*/
-/*}*/
-
-/*#fileExplorerContent .folderGroup.active:hover {*/
-/*    margin: auto;*/
-/*    outline: 1px solid #7fd8ff !important*/
-/*}*/
-
-/*#fileExplorerContent .folderGroup.active[data-pos=sec], #fileExplorerContent .folderGroup:hover {*/
-/*    background-color: #e5f3ff;*/
-/*    cursor: pointer*/
-/*}*/
-
-/*#fileExplorerContent .folderGroup.active[data-pos=main], #fileExplorerContent .folderGroup:first-child:hover {*/
-/*    background-color: #badcf9*/
-/*}*/
-
-/*#fileExplorerContent .folderGroup img {*/
-/*    width: 50px*/
-/*}*/
-
-/*#fileExplorerContent .folderGroup span {*/
-/*    font-weight: 500*/
-/*}*/
-
-/*#fileExplorerContent .folderGroup i:hover {*/
-/*    color: #2bb2ec !important;*/
-/*    cursor: pointer*/
-/*}*/
-
-/*#fileExplorerContent .fileTypeIcon {*/
-/*    width: 45px*/
-/*}*/
-
-/*.fileItem {*/
-/*    width: 20%*/
-/*}*/
-
-/*.fileItem img {*/
-/*    width: 45px*/
-/*}*/
-
-/*.fileContent:hover {*/
-/*    background-color: #e5f3ff*/
-/*}*/
-
-/*.numberFound {*/
-/*    border: 1px solid #73c17187 !important;*/
-/*    color: #43bf24*/
-/*}*/
-
-/*.numberSeriesList {*/
-/*    height: 51px;*/
-/*    overflow: hidden*/
-/*}*/
-
-/*.numberSeriesList .slotMachineContainer div {*/
-/*    height: 51px*/
-/*}*/
-
-/*.appAlertsText, .appLoading i {*/
-/*    color: #429dd2 !important*/
-/*}*/
-
-/*#dialog {*/
-/*    background-color: #000*/
-/*}*/
-
-/*.explorerPopup {*/
-/*    height: 100%;*/
-/*    width: 100%*/
-/*}*/
-
-/*.ui-widget-overlay {*/
-/*    background: #000 !important*/
-/*}*/
-
-/*.ui-dialog .ui-dialog-titlebar {*/
-/*    background: none;*/
-/*    border: none;*/
-/*    border-bottom-left-radius: 0;*/
-/*    border-bottom-right-radius: 0*/
-/*}*/
-
-/*.ui-dialog.ui-widget.ui-widget-content {*/
-/*    border-radius: 8px;*/
-/*    height: 75vh !important;*/
-/*    left: 50% !important;*/
-/*    overflow-y: scroll;*/
-/*    padding: 0;*/
-/*    top: 50% !important;*/
-/*    transform: translate(-49%, -53%);*/
-/*    width: 75vw !important*/
-/*}*/
-
-/*#dialog::-webkit-scrollbar, .ui-dialog.ui-widget.ui-widget-content::-webkit-scrollbar {*/
-/*    background-color: #fff !important;*/
-/*    height: 8px !important;*/
-/*    width: 16px !important*/
-/*}*/
-
-/*#dialog::-webkit-scrollbar-thumb, .ui-dialog.ui-widget.ui-widget-content::-webkit-scrollbar-thumb {*/
-/*    background: #29b3ca !important;*/
-/*    border-radius: 10px !important*/
-/*}*/
-
-/*.ui-dialog .ui-dialog-title {*/
-/*    color: #3d83ec*/
-/*}*/
 
 
 @media screen and (max-width: 900px){
