@@ -78,7 +78,6 @@ footer{
     /*width: 588px;*/
     /*height: 581px;*/
     z-index: -1;
-    left: 550px;
     top: 147px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
@@ -530,11 +529,66 @@ a.active{
 }
 
 
+@media screen and (min-width: 1301px) {
+    .imgCenter{
+        right: 25%;
+    }
+}
+@media screen and (min-width: 1001px) and (max-width: 1300px ) {
+    .imgCenter{
+        right: 10%;
+    }
 
-@media screen and (min-width: 500px) and (max-width: 900px){
+    .timer{
+        position: absolute;
+        right: 0;
+    }
+
+    #chrono{
+        position: absolute;
+        right: 0;
+        width: 350px;
+        top: 15%;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 1000px){
 
     .imgCenter{
-        left: 5%;
-        top: 147px;
+        top: 20%;
+        width: 100%;
     }
+
+    .side-nav{
+        top: 75%;
+    }
+
+    #tskbLogo{
+       width: 100px;
+    }
+
+    .btnApli{
+        position: relative;
+        left: 200px;
+        margin-right: 250px;
+    }
+
+    .timer{
+        position: absolute;
+        width: 360px;
+        left: 30%;
+        top: 0;
+    }
+
+    #chrono{
+        position: absolute;
+        left: 30%;
+        width: 350px;
+        top: 15%;
+    }
+
+    .logoFooterR {
+        flex-direction: column;
+    }
+
 }
