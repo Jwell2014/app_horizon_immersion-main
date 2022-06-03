@@ -41,7 +41,7 @@ let openDossier= false
 openNavCateg.addEventListener('click', (e) => {
     console.log(e);
     openDossier = !openDossier;
-    openDossier ? dossier.classList.add('openDossier') : dossier.classList.remove('openDossier') ;
+    openDossier ? dossier.classList.add('openDossier') : dossier.classList.remove('openDossier'), docs.classList.remove('openDoc')  ;
 });
 
 
@@ -70,7 +70,7 @@ openDocs.forEach((openDoc, i) =>{
         });
 
         docs[i].classList.add('openDoc');
-        document.querySelector('.apercu').textContent = docs[i].dataset.type;
+        // document.querySelector('.apercu').textContent = docs[i].dataset.type;
     });
 });
 

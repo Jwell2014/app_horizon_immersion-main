@@ -206,6 +206,12 @@ footer{
     visibility: hidden;
 }
 
+.sub-sousDoc.openSousDoc {
+
+    left: 1481px;
+    visibility: visible;
+}
+
 /* fin css des dossier */
 
 

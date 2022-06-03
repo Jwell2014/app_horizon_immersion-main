@@ -39,19 +39,27 @@
                                         <p>{{ document.nom }}</p>
                                     </a>
                                 </div>
+
+                                    <div class="sub-sousDoc">
+                                        <h2>Aperçu</h2>
+                                        <img class="img-thumbnail displayed" src="{{ asset('images/document/' ~ document.contenu) }}">
+                                        <p class="text-center pt-2">{{ document.nom }}</p>
+                                        <p class="text-center pt-2">{{ document.description }}</p>
+                                    </div>
                                 {% endif %}
                                 {% endfor %}
 
 
-                                <div class="sub-sousDoc">
-                                    <h2>Aperçu</h2>
-                                    <img class="img-thumbnail displayed" src="{{ asset("/images/C.A.T_RAPPORT_AVALANCHE_FINO.png") }}">
-                                    <p class="text-center pt-2">Avis_de_Recherche_Nicolas_Zlatesky.jpeg</p>
-                                    <p class="text-center pt-2">Image PNG - 415 Ko</p>
-                                </div>
 
                             </div>
                             {% endfor %}
+                            <div class="sub-sousDoc">
+                                <h2>Aperçu</h2>
+                                <img class="img-thumbnail displayed" src="{{ asset("/images/C.A.T_RAPPORT_AVALANCHE_FINO.png") }}">
+                                <p class="text-center pt-2">Avis_de_Recherche_Nicolas_Zlatesky.jpeg</p>
+                                <p class="text-center pt-2">Image PNG - 415 Ko</p>
+                            </div>
+
                         </div>
                     </div>
 
