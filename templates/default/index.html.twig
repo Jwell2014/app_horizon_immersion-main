@@ -25,7 +25,7 @@
                                     <p >{{ category.nom }}</p>
                                 </a>
                             </div>
-                            <div class="sub-doc" :id="{{category.nom}}">
+                            <div class="sub-doc" :id="{{category.nom}}" >
 
                                 <h2>Document {{ category.nom }}</h2>
                                 {% for document in documents %}
@@ -57,6 +57,13 @@
 
                 </div>
             </nav>
+
+            <button id="id01">CLICKEZ MOI ( 1 )</button>
+            <button id="id02">CLICKEZ MOI ( 2 )</button>
+            <button id="id03">CLICKEZ MOI ( 3 )</button>
+            <button id="id04">CLICKEZ MOI ( 4 )</button>
+
+            <p id="affichage">affichage ici</p>
 
 
         </div>

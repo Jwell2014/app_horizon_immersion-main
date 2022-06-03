@@ -45,6 +45,7 @@ openNavCateg.addEventListener('click', (e) => {
 });
 
 
+
 for(let i = 0; i < openDocs.length; i++){
     console.log(i);
     openDocs[i].addEventListener('click', (e) => {
@@ -60,6 +61,15 @@ for(let i = 0; i < openDocs.length; i++){
 });
 }
 
+let affiche = document.getElementById('affichage');
+let buttons = document.getElementsByTagName('button');
+len=buttons.length;
+for(i=0; i<len; i++){
+    buttons[i].addEventListener('click', function(e){
+        var idd = e.currentTarget.id;
+        affiche.innerHTML = idd;
+    });
+}
 
 
 // openDocs.addEventListener('click', () => {
