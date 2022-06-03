@@ -35,7 +35,7 @@ const dossier = document.querySelector('.sub-nav');
 const openDocs = document.querySelectorAll('.openDocument');
 const docs = document.querySelectorAll('.sub-doc');
 
-let openDossier= false;
+let openDossier= false
 
 
 openNavCateg.addEventListener('click', (e) => {
@@ -46,30 +46,33 @@ openNavCateg.addEventListener('click', (e) => {
 
 
 
-for(let i = 0; i < openDocs.length; i++){
-    console.log(i);
-    openDocs[i].addEventListener('click', (e) => {
-        console.log(e.target.id)
-        for(let e = 0; e < docs.length; e++){
-            openDossier = !openDossier;
-            openDossier ? docs[e].classList.add('openDoc') : docs[e].classList.remove('openDoc');
+// for(let i = 0; i < openDocs.length; i++){
+//     console.log(i);
+//     openDocs[i].addEventListener('click', (e) => {
+//         console.log(e.target.id)
+//         for(let e = 0; e < docs.length; e++){
+//             openDossier = !openDossier;
+//             openDossier ? docs[e].classList.add('openDoc') : docs[e].classList.remove('openDoc');
+//
+//             console.log(docs[e])
+//
+//         };
+//
+// });
+// }
+openDocs.forEach((openDoc, i) =>{
+    openDoc.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log(i);
 
-            console.log(docs[e])
+        docs.forEach((doc) => {
+            doc.classList.remove('openDoc');
+        });
 
-        };
-
-});
-}
-
-let affiche = document.getElementById('affichage');
-let buttons = document.getElementsByTagName('button');
-len=buttons.length;
-for(i=0; i<len; i++){
-    buttons[i].addEventListener('click', function(e){
-        var idd = e.currentTarget.id;
-        affiche.innerHTML = idd;
+        docs[i].classList.add('openDoc');
+        document.querySelector('.apercu').textContent = docs[i].dataset.type;
     });
-}
+});
 
 
 // openDocs.addEventListener('click', () => {
