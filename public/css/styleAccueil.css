@@ -205,10 +205,8 @@ footer{
     border-left: 2px solid #000;
     visibility: hidden;
 }
-
-.sub-sousDoc.openSousDoc {
-
-    left: 1481px;
+.openSousDoc {
+    transform: translateX(200px);
     visibility: visible;
 }
 

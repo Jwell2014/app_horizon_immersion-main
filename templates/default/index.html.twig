@@ -17,57 +17,50 @@
                         </svg>
                         <div class="sub-nav">
                             <h2>Dossier</h2>
-                            {% for category in categories %}
-                            <div>
-                                <p>{{ dump (category.id) }}</p>
-                                <a class="openDocument">
-                                    <img class="navImage" src="{{ asset('images/category/' ~ category.image) }}">
-                                    <p >{{ category.nom }}</p>
-                                </a>
-                            </div>
-                            <div class="sub-doc" :id="{{category.nom}}" >
-
-                                <h2>Document {{ category.nom }}</h2>
-                                {% for document in documents %}
-                                {% if document.category.id == category.id %}
-
-                                <div class="linkImage">
-                                    <p>{{ dump (category.id) }}</p>
-                                    <p>{{ dump (document.category.id) }}</p>
-                                    <a>
-                                        <img  class="navImage" src="{{ asset("/images/picture.svg") }}">
-                                        <p>{{ document.nom }}</p>
+                            {% for index, category in categories %}
+                                <div>
+                                    <a class="openDocument" data-index={{index}}>
+                                        <img class="navImage" src="{{ asset('images/category/' ~ category.image) }}">
+                                        <p >{{ category.nom }}</p>
                                     </a>
                                 </div>
+                                <div class="sub-doc" :id="{{category.nom}}" >
+                                    <h2>Document {{ category.nom }}</h2>
 
-                                    <div class="sub-sousDoc">
-                                        <h2>Aperçu</h2>
-                                        <img class="img-thumbnail displayed" src="{{ asset('images/document/' ~ document.contenu) }}">
-                                        <p class="text-center pt-2">{{ document.nom }}</p>
-                                        <p class="text-center pt-2">{{ document.description }}</p>
-                                    </div>
-                                {% endif %}
+                                    {% for jindex, document in documents %}
+                                        {% if document.category.id == category.id %}
+                                            <div class="linkImage">
+                                                <a data-index={{index}} data-subindex={{jindex}}>
+                                                    <img  class="navImage" src="{{ asset("/images/picture.svg") }}">
+                                                    <p>{{ document.nom }}</p>
+                                                </a>
+                                            </div>
+                                        {% endif %}
+
+                                    {% endfor %}
+
+                                </div>
+
+                                {% for jindex, document in documents %}
+                                    {% if document.category.id == category.id %}
+
+                                        <div class="sub-sousDoc" data-index={{index}} data-subindex={{jindex}} :id="{{document.nom}}">
+                                            <h2>Aperçu</h2>
+                                            <img class="img-thumbnail displayed" src="{{ asset('images/document/' ~ document.contenu) }}">
+                                            <p class="text-center pt-2">{{ document.nom }}</p>
+                                            <p class="text-center pt-2">{{ document.description }}</p>
+                                        </div>
+
+                                    {% endif %}
+
                                 {% endfor %}
 
-
-
-                            </div>
                             {% endfor %}
-                            <div class="sub-sousDoc">
-                                <h2>Aperçu</h2>
-                                <img class="img-thumbnail displayed" src="{{ asset("/images/C.A.T_RAPPORT_AVALANCHE_FINO.png") }}">
-                                <p class="text-center pt-2">Avis_de_Recherche_Nicolas_Zlatesky.jpeg</p>
-                                <p class="text-center pt-2">Image PNG - 415 Ko</p>
-                            </div>
 
                         </div>
                     </div>
-
                 </div>
             </nav>
-
-
-
         </div>
 
 

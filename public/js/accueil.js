@@ -32,8 +32,10 @@
 // DEUXIÈME NAV
 const openNavCateg = document.querySelector('.iconeDoc');
 const dossier = document.querySelector('.sub-nav');
-const openDocs = document.querySelectorAll('.openDocument');
-const docs = document.querySelectorAll('.sub-doc');
+const openDocuments = document.querySelectorAll('.openDocument');
+const subDocs = document.querySelectorAll('.sub-doc a');
+const subDocsApercu = document.querySelectorAll('.sub-sousDoc div');
+
 
 let openDossier= false
 
@@ -45,35 +47,29 @@ openNavCateg.addEventListener('click', (e) => {
 });
 
 
-
-// for(let i = 0; i < openDocs.length; i++){
-//     console.log(i);
-//     openDocs[i].addEventListener('click', (e) => {
-//         console.log(e.target.id)
-//         for(let e = 0; e < docs.length; e++){
-//             openDossier = !openDossier;
-//             openDossier ? docs[e].classList.add('openDoc') : docs[e].classList.remove('openDoc');
-//
-//             console.log(docs[e])
-//
-//         };
-//
-// });
-// }
-openDocs.forEach((openDoc, i) =>{
+openDocuments.forEach((openDoc, i) =>{
     openDoc.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log(i);
+        subDocs.forEach((subDoc) => {
+            if(subDoc.dataset.index === openDoc.dataset.index){
+                subDoc.style.display = "block";
 
-        docs.forEach((doc) => {
-            doc.classList.remove('openDoc');
+                subDoc.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    subDocsApercu.forEach((subDocApercu) => {
+                        if(subDoc.dataset.index === subDocApercu.dataset.index && subDoc.dataset.subindex === subDocApercu.dataset.subindex){
+                            subDocApercu.style.display = "block";
+                        }else{
+                            subDocApercu.style.display = "none";
+                        }
+                    });
+                });
+            } else{
+                subDoc.style.display = "none";
+            }
         });
-
-        docs[i].classList.add('openDoc');
-        // document.querySelector('.apercu').textContent = docs[i].dataset.type;
     });
-});
-
+})
 
 // openDocs.addEventListener('click', () => {
 //         console.log('ok')
