@@ -33,9 +33,9 @@
 const openNavCateg = document.querySelector('.iconeDoc');
 const dossier = document.querySelector('.sub-nav');
 const openDocuments = document.querySelectorAll('.openDocument');
+const subDocsWrapper = document.querySelectorAll('.sub-doc');
 const subDocs = document.querySelectorAll('.sub-doc a');
-const subDocsApercu = document.querySelectorAll('.sub-sousDoc div');
-
+const subDocsApercu = document.querySelectorAll('.sub-sousDoc');
 
 let openDossier= false
 
@@ -43,33 +43,43 @@ let openDossier= false
 openNavCateg.addEventListener('click', (e) => {
     console.log(e);
     openDossier = !openDossier;
-    openDossier ? dossier.classList.add('openDossier') : dossier.classList.remove('openDossier'), docs.classList.remove('openDoc')  ;
+    openDossier ? dossier.classList.add('openDossier') : dossier.classList.remove('openDossier'); subDocsWrapper.classList.remove('openSousDoc');
 });
 
 
 openDocuments.forEach((openDoc, i) =>{
     openDoc.addEventListener('click', (e) => {
         e.preventDefault();
-        subDocs.forEach((subDoc) => {
-            if(subDoc.dataset.index === openDoc.dataset.index){
-                subDoc.style.display = "block";
+        console.log('click ' + openDoc.dataset.index);
+        console.log(e);
 
-                subDoc.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    subDocsApercu.forEach((subDocApercu) => {
-                        if(subDoc.dataset.index === subDocApercu.dataset.index && subDoc.dataset.subindex === subDocApercu.dataset.subindex){
-                            subDocApercu.style.display = "block";
-                        }else{
-                            subDocApercu.style.display = "none";
-                        }
-                    });
+        subDocsWrapper.forEach((subDocWrapper) => {
+            if(subDocWrapper.dataset.index === openDoc.dataset.index){
+                subDocWrapper.classList.add('openSousDoc');
+                console.log(subDocWrapper)
+                subDocs.forEach((subDoc) => {
+                    if(subDoc.dataset.index === openDoc.dataset.index){
+                        subDoc.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            subDocsApercu.forEach((subDocApercu) => {
+                                if(subDoc.dataset.index === subDocApercu.dataset.index && subDoc.dataset.subindex === subDocApercu.dataset.subindex){
+                                    subDocApercu.classList.add('openApercu');
+                                }else{
+                                    subDocApercu.classList.remove('openApercu');
+                                }
+                            });
+                        });
+                    }
                 });
             } else{
-                subDoc.style.display = "none";
+                subDocWrapper.classList.remove('openSousDoc');
             }
         });
+        
+
     });
 })
+
 
 // openDocs.addEventListener('click', () => {
 //         console.log('ok')

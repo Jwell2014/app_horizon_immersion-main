@@ -21,10 +21,10 @@
                                 <div>
                                     <a class="openDocument" data-index={{index}}>
                                         <img class="navImage" src="{{ asset('images/category/' ~ category.image) }}">
-                                        <p >{{ category.nom }}</p>
+                                        <p class="police">{{ category.nom }}</p>
                                     </a>
                                 </div>
-                                <div class="sub-doc" :id="{{category.nom}}" >
+                                <div class="sub-doc" :id="{{category.nom}}" data-index={{index}}>
                                     <h2>Document {{ category.nom }}</h2>
 
                                     {% for jindex, document in documents %}
@@ -62,6 +62,11 @@
                 </div>
             </nav>
         </div>
+
+
+
+
+
 
 
         <div class="col-lg-2 dispo">

@@ -204,9 +204,15 @@ footer{
     border-right: 2px solid #000;
     border-left: 2px solid #000;
     visibility: hidden;
+    overflow: auto;
 }
 .openSousDoc {
     transform: translateX(200px);
+    visibility: visible;
+}
+
+.openApercu {
+    transform: translateX(695px);
     visibility: visible;
 }
 
@@ -424,6 +430,8 @@ height: 800px;
 
 .navImage{
     float:left;
+    width: 50px;
+    padding-right: 10px;
 }
 
 .nav2{
@@ -436,6 +444,12 @@ height: 800px;
     color: white;
 
 
+}
+
+.police{
+    text-transform: uppercase;
+    color: white;
+    font-family: open sans, sans-serif;
 }
 
 /* pour afficher une fleche au bout de texte au survol de la souris
@@ -452,6 +466,7 @@ height: 800px;
 .linkImage p{
     padding-top: 4px;
     padding-left: 40px;
+    font-family: open sans, sans-serif;
 
 }
 
