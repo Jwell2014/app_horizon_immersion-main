@@ -43,7 +43,15 @@ let openDossier= false
 openNavCateg.addEventListener('click', (e) => {
     console.log(e);
     openDossier = !openDossier;
-    openDossier ? dossier.classList.add('openDossier') : dossier.classList.remove('openDossier'); subDocsWrapper.classList.remove('openSousDoc');
+    openDossier ? dossier.classList.add('openDossier') : dossier.classList.remove('openDossier');
+    subDocsWrapper.forEach((subDocWrapper) =>{
+        subDocWrapper.classList.remove('openSousDoc');
+    })
+
+    subDocsApercu.forEach((subDocApercu) =>{
+        subDocApercu.classList.remove('openApercu');
+
+    } )
 });
 
 
@@ -52,6 +60,15 @@ openDocuments.forEach((openDoc, i) =>{
         e.preventDefault();
         console.log('click ' + openDoc.dataset.index);
         console.log(e);
+
+        subDocsWrapper.forEach((subDocWrapper) =>{
+            subDocWrapper.classList.remove('openSousDoc');
+        })
+
+        subDocsApercu.forEach((subDocApercu) =>{
+            subDocApercu.classList.remove('openApercu');
+
+        } )
 
         subDocsWrapper.forEach((subDocWrapper) => {
             if(subDocWrapper.dataset.index === openDoc.dataset.index){
@@ -73,6 +90,8 @@ openDocuments.forEach((openDoc, i) =>{
                 });
             } else{
                 subDocWrapper.classList.remove('openSousDoc');
+
+
             }
         });
         
