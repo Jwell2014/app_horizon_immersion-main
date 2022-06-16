@@ -55,4 +55,12 @@ class DefaultController extends AbstractController
 
         ]);
     }
+
+    #[Route('/plan', name: 'plan')]
+    public function plan(): Response
+    {
+        return $this->render('default/plan.html.twig', [
+
+        ]);
+    }
 }
