@@ -123,7 +123,9 @@ button  {
     height: 20px;
     width: 20px;
 
-
+    animation-duration: 2s;
+   animation-name: clignoter;
+   animation-iteration-count: infinite;
 
     display: block;
     position: relative;
