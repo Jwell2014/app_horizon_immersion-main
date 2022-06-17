@@ -16,23 +16,21 @@ button  {
     outline: inherit;
 }
 
-.target{
-    height: 20px;
-    width: 20px;
-    background-color: red;
-    border-radius: 50%;
-    display: inline-block;
-    position: relative;
-    left: 8px;
-    top: 3px;
-    transform: translateX(5px);
+/*.target{*/
+/*    height: 20px;*/
+/*    width: 20px;*/
+/*    background-color: red;*/
+/*    border-radius: 50%;*/
+/*    display: inline-block;*/
+/*    position: relative;*/
+/*    left: 8px;*/
+/*    top: 3px;*/
+/*    animation-duration: 2s;*/
+/*    animation-name: clignoter;*/
+/*    animation-iteration-count: infinite;*/
+/*    transition: none;*/
 
-    animation-duration: 2s;
-    animation-name: clignoter;
-    animation-iteration-count: infinite;
-    transition: none;
-
-}
+/*}*/
 
 @keyframes clignoter {
     0%   { opacity:1; }
@@ -43,9 +41,12 @@ button  {
     opacity: 0 !important;
 }
 
+
+
 .hidden{
     display: none !important;
 }
+
 
 .an1div1 { grid-area: 1 / 1 / 2 / 5 !important; border: 1px solid black !important; background-color: darkblue !important; text-decoration: none !important; }
 .an1div2 { grid-area: 1 / 5 / 3 / 7 !important; border: 1px solid black !important; background-color: darksalmon !important;}
@@ -103,3 +104,65 @@ button  {
     background-color: lightgreen!important; }
 .an3div11 { grid-area: 4 / 4 / 5 / 6 !important; border: 1px solid black !important;
     background-color: darkgreen !important; }
+
+
+
+.item	{
+    background: rgba(255, 255, 255, 0.1);
+    display: grid;
+    place-items: center;
+    border-radius: 4px;
+    transition: opacity 0.4s ease;
+}
+.target {
+    --color: red;
+    --size-mid: 6vmin;
+    --size-dot: 1.5vmin;
+    --size-bar: 0.4vmin;
+    --size-square: 3vmin;
+    height: 20px;
+    width: 20px;
+
+    border-radius: 50%;
+
+    display: block;
+    position: relative;
+    width: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.target::before,
+.target::after {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+}
+
+
+.target::before {
+    width: var(--size-square);
+    height: var(--size-square);
+    background-color: var(--color);
+    top: calc(50% - var(--size-square));
+    left: calc(50% - var(--size-square));
+    animation: target 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
+}
+
+@keyframes target {
+    0%, 100% {
+        transform: none;
+    }
+
+    25% {
+        transform: translateX(100%);
+    }
+
+    50% {
+        transform: translateX(100%) translateY(100%);
+    }
+
+    75% {
+        transform: translateY(100%);
+    }
+}
