@@ -44,11 +44,13 @@
                                 {% for jindex, document in documents %}
                                     {% if document.category.id == category.id %}
 
-                                        <div class="sub-sousDoc" data-index={{index}} data-subindex={{jindex}} :id="{{document.nom}}">
+                                        <div class="sub-sousDoc" data-index={{index}} data-subindex={{jindex}}  :id="{{document.nom}}">
                                             <h2>Aperçu</h2>
+
                                             <img class="img-thumbnail displayed" src="{{ asset('images/document/' ~ document.contenu) }}">
                                             <p class="text-center pt-2">{{ document.nom }}</p>
                                             <p class="text-center pt-2">{{ document.description }}</p>
+
                                         </div>
 
                                     {% endif %}
