@@ -44,6 +44,7 @@ openNavCateg.addEventListener('click', (e) => {
     console.log(e);
     openDossier = !openDossier;
     openDossier ? dossier.classList.add('openDossier') : dossier.classList.remove('openDossier');
+
     subDocsWrapper.forEach((subDocWrapper) =>{
         subDocWrapper.classList.remove('openSousDoc');
     })
