@@ -389,7 +389,10 @@
 
                         <!-- Button Assemblée Nationale-->
                         {% for appliAN in an %}
-                            <button type="button" class="btn btnApli {% if appliAN.isActive == 0 %}hidden{% endif %}" data-bs-toggle="modal" data-bs-target="#modalAN"><img class=""  src="{{ asset("images/" ~ appliAN.nom ~ ".png") }}" height="40px" width="40px">
+                            <button type="button" class="btn btnApli {% if appliAN.isActive == 0 %}hidden{% endif %}"
+                                    data-bs-toggle="modal" data-bs-target="#modalAN"><img class=""
+                                                                                          src="{{ asset("images/" ~ appliAN.nom ~ ".png") }}"
+                                                                                          height="40px" width="40px">
                             </button>
                         {% endfor %}
                         <!-- Modal -->
@@ -423,62 +426,100 @@
 
                                         <div class="col-10 ms-5">
                                             {% for dossier in dossierNum %}
-                                                <div class="accordion accordion-flush mt-5  {% if dossier.isActive == 0 %}hidden{% endif %}" id="accordionExample">
+                                                <div class="accordion accordion-flush mt-5  {% if dossier.isActive == 0 %}hidden{% endif %}"
+                                                     id="accordionExample">
                                                     <div class="accordion-item">
                                                         <h2 class="accordion-header" id="headingOne">
-                                                            <button class="accordion-button collapsed planNum" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                                            <button class="accordion-button collapsed planNum"
+                                                                    type="button" data-bs-toggle="collapse"
+                                                                    data-bs-target="#collapseOne" aria-expanded="false"
+                                                                    aria-controls="collapseOne">
                                                                 plan_num_an_1
                                                             </button>
                                                         </h2>
-                                                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                        <div id="collapseOne" class="accordion-collapse collapse"
+                                                             aria-labelledby="headingOne"
+                                                             data-bs-parent="#accordionExample">
                                                             <div class="accordion-body">
                                                                 <div class="an1">
                                                                     <div class="an1div1 button">
-                                                                        <div class="text-center my-3">
+                                                                        <div class="text-center my-3 d-flex flex-column">
                                                                             <button class="togg1 buttonAN">A6</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="an1div2 button">
-                                                                        <div class="text-center my-3">
+                                                                        <div class="text-center my-3 d-flex flex-column">
                                                                             <button class="togg1 buttonAN">A7</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="an1div3 button">
-                                                                        <div class="text-center my-3">
-                                                                            <button class="togg1 buttonAN">Bibliothèque</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                        <div class="text-center my-3 d-flex flex-column">
+                                                                            <button class="togg1 buttonAN">
+                                                                                Bibliothèque
+                                                                            </button>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="an1div4 button">
-                                                                        <div class="text-center my-3">
-                                                                            <button class="togg1 buttonAN">Commission des Lois</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                        <div class="text-center my-3 d-flex flex-column">
+                                                                            <button class="togg1 buttonAN">Commission
+                                                                                des Lois
+                                                                            </button>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="an1div5 button">
-                                                                        <div class="text-center my-3">
-                                                                            <button class="togg1 buttonAN">Affaires Culturelles</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                        <div class="text-center my-3 d-flex flex-column">
+                                                                            <button class="togg1 buttonAN">Affaires
+                                                                                Culturelles
+                                                                            </button>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="an1div6 button">
-                                                                        <div class="text-center my-3">
-                                                                            <button class="togg1 buttonAN">Stock</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                        <div class="text-center my-3 d-flex flex-column">
+                                                                            <button class="togg1 buttonAN">Stock
+                                                                            </button>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="an1div7 button">
-                                                                        <div class="text-center my-3">
+                                                                        <div class="text-center my-3 d-flex flex-column">
                                                                             <button class="togg1 buttonAN">A8</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="an1div8 button">
-                                                                        <div class="text-center my-3">
-                                                                            <button class="togg1 buttonAN">Escalier +1</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                        <div class="text-center my-3 d-flex flex-column">
+                                                                            <button class="togg1 buttonAN">Escalier +1
+                                                                            </button>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -487,34 +528,52 @@
                                                     </div>
                                                     <div class="accordion-item">
                                                         <h2 class="accordion-header" id="headingTwo">
-                                                            <button class="accordion-button collapsed planNum" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                            <button class="accordion-button collapsed planNum"
+                                                                    type="button" data-bs-toggle="collapse"
+                                                                    data-bs-target="#collapseTwo" aria-expanded="false"
+                                                                    aria-controls="collapseTwo">
                                                                 plan_num_an_2
                                                             </button>
                                                         </h2>
-                                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                                        <div id="collapseTwo" class="accordion-collapse collapse"
+                                                             aria-labelledby="headingTwo"
+                                                             data-bs-parent="#accordionExample">
                                                             <div class="accordion-body">
                                                                 <div class="an2">
                                                                     <div class="an2div1 button">
 
                                                                         <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-3">Escalier -1</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <button class="buttonAN mt-3">Escalier -1
+                                                                            </button>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
 
                                                                     </div>
                                                                     <div class="an2div2 button">
 
                                                                         <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-3"> Cabinet du Départ</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <button class="buttonAN mt-3"> Cabinet du
+                                                                                Départ
+                                                                            </button>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="an2div3 button">
 
                                                                         <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-3">Buvette des Parlementaires
+                                                                            <button class="buttonAN mt-3">Buvette des
+                                                                                Parlementaires
                                                                             </button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
 
                                                                     </div>
@@ -522,7 +581,10 @@
 
                                                                         <div class="text-center">
                                                                             <button class="buttonAN mt-2">A1</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
 
                                                                     </div>
@@ -530,23 +592,36 @@
 
                                                                         <div class="text-center">
                                                                             <button class="buttonAN mt-2">A2</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
 
                                                                     </div>
                                                                     <div class="an2div6 button" style="z-index: 10000">
 
                                                                         <div class="text-center my-2 ">
-                                                                            <button class="buttonAN mt-3">Salon des Stucs</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <button class="buttonAN mt-3">Salon des
+                                                                                Stucs
+                                                                            </button>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
 
                                                                     </div>
                                                                     <div class="an2div7 button" style="z-index: 10000">
 
                                                                         <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-3">Salle à Manger</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <button class="buttonAN mt-3">Salle à
+                                                                                Manger
+                                                                            </button>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
 
                                                                     </div>
@@ -554,7 +629,10 @@
 
                                                                         <div class="text-center">
                                                                             <button class="buttonAN mt-2">A3</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
 
                                                                     </div>
@@ -562,137 +640,214 @@
                                                                     <div class="an2div9 button">
 
                                                                         <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-3">Conférence des Présidents
+                                                                            <button class="buttonAN mt-3">Conférence des
+                                                                                Présidents
                                                                             </button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
 
                                                                     </div>
                                                                     <div class="an2div10 button">
 
                                                                         <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-3">Commission de la Finance
+                                                                            <button class="buttonAN mt-3">Commission de
+                                                                                la Finance
                                                                             </button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
 
                                                                     </div>
                                                                     <div class="an2div11 button">
 
                                                                         <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-3">Escalier -1</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <button class="buttonAN mt-3">Escalier -1
+                                                                            </button>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
 
                                                                     </div>
                                                                     <div class="an2div12 button mt-5">
 
                                                                         <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-3">Jardin des Quatre Colones
+                                                                            <button class="buttonAN mt-3">Jardin des
+                                                                                Quatre Colones
                                                                             </button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
 
                                                                     </div>
 
                                                                     <div class="an2div13 button">
                                                                         <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-2">Salon des Éléments</button>
-                                                                            <span class="target hidden d1"></span>
+                                                                            <button class="buttonAN mt-2">Salon des
+                                                                                Éléments
+                                                                            </button>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
 
                                                                     {#                                                    <div class="div13">Salon des Éléments</div> #}
                                                                     <div class="an2div14 button">
 
-                                                                        <div class="text-center my-2">
-                                                                            <button class="buttonAN p-3">Salon des Saisons</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                        <div class="text-center my-3">
+                                                                            <button class="buttonAN p-3">Salon des
+                                                                                Saisons
+                                                                            </button>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="an2div15 button">
 
                                                                         <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-3">Salon des Jeux</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <button class="buttonAN mt-3">Salon des
+                                                                                Jeux
+                                                                            </button>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
 
                                                                     </div>
-                                                                    <div class="an2div16" style="z-index: 100">&nbsp;</div>
+                                                                    <div class="an2div16" style="z-index: 100">&nbsp;
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="accordion-item">
                                                         <h2 class="accordion-header" id="headingThree">
-                                                            <button class="accordion-button collapsed planNum" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                            <button class="accordion-button collapsed planNum"
+                                                                    type="button" data-bs-toggle="collapse"
+                                                                    data-bs-target="#collapseThree"
+                                                                    aria-expanded="false" aria-controls="collapseThree">
                                                                 plan_num_an_3
                                                             </button>
                                                         </h2>
-                                                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                                        <div id="collapseThree" class="accordion-collapse collapse"
+                                                             aria-labelledby="headingThree"
+                                                             data-bs-parent="#accordionExample">
                                                             <div class="accordion-body">
                                                                 <div class="an3">
                                                                     <div class="an3div1 button">
                                                                         <div class="text-center my-1">
                                                                             <button class="togg1 buttonAN">A4</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="an3div2 button">
                                                                         <div class="text-center my-1">
                                                                             <button class="togg1 buttonAN">A5</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="an3div3 button">
                                                                         <div class="text-center my-1">
-                                                                            <button class="togg1 buttonAN">Salle de Défense</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <button class="togg1 buttonAN">Salle de
+                                                                                Défense
+                                                                            </button>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
 
                                                                     </div>
                                                                     <div class="an3div4 button ">
                                                                         <div class="text-center my-1">
-                                                                            <button class="togg1 buttonAN">Escalier -1</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <button class="togg1 buttonAN">Escalier -1
+                                                                            </button>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="an3div5 button">
                                                                         <div class="text-center my-1">
-                                                                            <button class="togg1 buttonAN">Salle du Patrimoine</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <button class="togg1 buttonAN">Salle du
+                                                                                Patrimoine
+                                                                            </button>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="an3div6"></div>
                                                                     <div class="an3div7 button">
                                                                         <div class="text-center my-1">
-                                                                            <button class="togg1 buttonAN">Salle des Conférences
+                                                                            <button class="togg1 buttonAN">Salle des
+                                                                                Conférences
                                                                             </button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="an3div8 button">
                                                                         <div class="text-center my-1">
-                                                                            <button class="togg1 buttonAN">Hémicycle</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <button class="togg1 buttonAN">Hémicycle
+                                                                            </button>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="an3div9 button">
                                                                         <div class="text-center my-1">
                                                                             <button class="togg1 buttonAN">A0</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="an3div10 pt-5 button">
                                                                         <div class="text-center my-1">
-                                                                            <button class="togg1 buttonAN">Cours d'honneur</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <button class="togg1 buttonAN mt-5">Cours
+                                                                                d'honneur
+                                                                            </button>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="an3div11 button">
                                                                         <div class="text-center my-1">
-                                                                            <button class="togg1 buttonAN">Escalier</button>
-                                                                            <span class="target mt-1 hidden d1"></span>
+                                                                            <button class="togg1 buttonAN">Escalier
+                                                                            </button>
+                                                                            <div class="row justify-content-center">
+                                                                                <div class="col-1">&nbsp;</div>
+                                                                                <span class="col-1 target mt-1 hidden d1"></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -709,7 +864,7 @@
 
                                             let hidden = true;
 
-                                            btns.forEach( btn => {
+                                            btns.forEach(btn => {
                                                 btn.addEventListener('click', () => {
                                                     spans.forEach(span => {
                                                         span.classList.add('hidden')
