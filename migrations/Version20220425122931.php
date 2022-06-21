@@ -20,12 +20,12 @@ final class Version20220425122931 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE sessions ADD nombre_participants INT NOT NULL');
+        $this->addSql('ALTER TABLE session ADD nombre_participants INT NOT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE sessions DROP nombre_participants');
+        $this->addSql('ALTER TABLE session DROP nombre_participants');
     }
 }

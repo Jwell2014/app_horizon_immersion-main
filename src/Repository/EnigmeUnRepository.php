@@ -73,4 +73,12 @@ class EnigmeUnRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findAllAnswers()
+    {
+        return $this->createQueryBuilder('e')
+            ->select('e.answer')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

@@ -16,7 +16,7 @@ class DossierController extends AbstractController
     #[Route('/', name: 'app_dossier_index', methods: ['GET'])]
     public function index(DossierRepository $dossierRepository): Response
     {
-        return $this->render('dossier/index.html.twig', [
+        return $this->render('admin_interface/dossier/index.html.twig', [
             'dossiers' => $dossierRepository->findAll(),
         ]);
     }
@@ -33,7 +33,7 @@ class DossierController extends AbstractController
             return $this->redirectToRoute('app_chrono_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('dossier/new.html.twig', [
+        return $this->renderForm('admin_interface/dossier/new.html.twig', [
             'dossier' => $dossier,
             'form' => $form,
         ]);
@@ -42,7 +42,7 @@ class DossierController extends AbstractController
     #[Route('/{id}', name: 'app_dossier_show', methods: ['GET'])]
     public function show(Dossier $dossier): Response
     {
-        return $this->render('dossier/show.html.twig', [
+        return $this->render('admin_interface/dossier/show.html.twig', [
             'dossier' => $dossier,
         ]);
     }
@@ -55,10 +55,10 @@ class DossierController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $dossierRepository->add($dossier);
-            return $this->redirectToRoute('app_chrono_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_settings_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('dossier/edit.html.twig', [
+        return $this->renderForm('admin_interface/dossier/edit.html.twig', [
             'dossier' => $dossier,
             'form' => $form,
         ]);

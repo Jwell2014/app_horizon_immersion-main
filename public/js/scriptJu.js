@@ -183,7 +183,7 @@ canvas.on('object:removed', function(options) {
     hidden.classList.toggle("show");
 });*/
 
-// script pour le chrono - horloge
+// script pour le ParamGlobaux - horloge
 
 // function padLeadingZeros(num, size) {
 //     var s = num+"";

@@ -1,4 +1,3 @@
-
 // PREMIERE NAV
 // const btn = document.querySelector('#docImg');
 // const text = document.querySelector('.nav2');
@@ -37,7 +36,7 @@ const subDocsWrapper = document.querySelectorAll('.sub-doc');
 const subDocs = document.querySelectorAll('.sub-doc a');
 const subDocsApercu = document.querySelectorAll('.sub-sousDoc');
 
-let openDossier= false
+let openDossier = false
 
 
 openNavCateg.addEventListener('click', (e) => {
@@ -45,62 +44,60 @@ openNavCateg.addEventListener('click', (e) => {
     openDossier = !openDossier;
     openDossier ? dossier.classList.add('openDossier') : dossier.classList.remove('openDossier');
 
-    subDocsWrapper.forEach((subDocWrapper) =>{
+    subDocsWrapper.forEach((subDocWrapper) => {
         subDocWrapper.classList.remove('openSousDoc');
     })
 
-    subDocsApercu.forEach((subDocApercu) =>{
+    subDocsApercu.forEach((subDocApercu) => {
         subDocApercu.classList.remove('openApercu');
 
-    } )
+    })
 });
 
 
-openDocuments.forEach((openDoc, i) =>{
+openDocuments.forEach((openDoc, i) => {
     openDoc.addEventListener('click', (e) => {
         e.preventDefault();
         console.log('click ' + openDoc.dataset.index);
         console.log(e);
 
-        subDocsWrapper.forEach((subDocWrapper) =>{
+        subDocsWrapper.forEach((subDocWrapper) => {
             subDocWrapper.classList.remove('openSousDoc');
         })
 
-        subDocsApercu.forEach((subDocApercu) =>{
+        subDocsApercu.forEach((subDocApercu) => {
             subDocApercu.classList.remove('openApercu');
 
-        } )
+        })
 
         subDocsWrapper.forEach((subDocWrapper) => {
-            if(subDocWrapper.dataset.index === openDoc.dataset.index){
+            if (subDocWrapper.dataset.index === openDoc.dataset.index) {
                 subDocWrapper.classList.add('openSousDoc');
                 console.log(subDocWrapper)
                 subDocs.forEach((subDoc) => {
-                    if(subDoc.dataset.index === openDoc.dataset.index){
+                    if (subDoc.dataset.index === openDoc.dataset.index) {
                         subDoc.addEventListener('click', (e) => {
                             e.preventDefault();
                             subDocsApercu.forEach((subDocApercu) => {
-                                if(subDoc.dataset.index === subDocApercu.dataset.index && subDoc.dataset.subindex === subDocApercu.dataset.subindex){
+                                if (subDoc.dataset.index === subDocApercu.dataset.index && subDoc.dataset.subindex === subDocApercu.dataset.subindex) {
                                     subDocApercu.classList.add('openApercu');
-                                }else{
+                                } else {
                                     subDocApercu.classList.remove('openApercu');
                                 }
                             });
                         });
                     }
                 });
-            } else{
+            } else {
                 subDocWrapper.classList.remove('openSousDoc');
 
 
             }
         });
-        
+
 
     });
 })
-
-
 
 
 // openDocs.addEventListener('click', () => {
@@ -111,12 +108,7 @@ openDocuments.forEach((openDoc, i) =>{
 // });
 
 
-
-
-
-
 // script pour le bouton apli tableau et ratp
-
 
 
 /*
@@ -136,8 +128,7 @@ document.querySelector('.btn-secondary').addEventListener('click', () => {
 });*/
 
 
-
-// script pour le chrono - horloge
+// script pour le ParamGlobaux - horloge
 
 
 let hour = 11;
@@ -213,8 +204,6 @@ function timer() {
         hour++;
 
     }
-
-
 
 
     document.getElementById('hour').innerText = returnData(hour);
@@ -340,3 +329,38 @@ openMenu.addEventListener('click', () => {
 //         } else $(".stationIcon i").css({color: "#f9cc01"})
 //     }
 // }), 250);
+
+
+//js de l'affichage de la ligne de métro
+var val = 0,
+    progress = 0;
+
+function progressBar() {
+    val += 0.005;
+    progress = (val * 50 > 1225) ? 1225 : val * 50; /* 50 is 1/8th of height, 400 is height */
+    $('.progress-now-vertical').attr('style', 'width: ' + progress + 'px');
+    if (val > 25) val = 0;
+    anim = window.requestAnimationFrame(progressBar);
+}
+
+progressBar();
+
+
+//js des plans de l'assemblée nationale
+    const buttonsPlan = document.querySelectorAll('.buttonPlan');
+    const plans = document.querySelectorAll('.plan');
+
+    buttonsPlan.forEach(buttonPlan => {
+    buttonPlan.addEventListener('click', (e) => {
+        console.log('ok');
+        console.log(e.target)
+
+        plans.forEach(plan => {
+            if (buttonPlan.dataset.index === plan.dataset.index) {
+                plan.classList.toggle('hide')
+            }
+
+
+        })
+    })
+})

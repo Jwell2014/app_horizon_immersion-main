@@ -417,6 +417,13 @@ height: 800px;
     border-radius: 30% 30% 10% 10%;
 }
 
+.enigmeInput{
+    font-family: 'Roboto', sans-serif !important;
+    border: none!important;
+    border-radius: 6px !important;
+    font-size: 1.25em; !important;
+}
+
 .navDossier{
     max-height: 100% !important;
     max-width: 100% !important;

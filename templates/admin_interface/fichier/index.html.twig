@@ -1,0 +1,37 @@
+{% extends 'base_ju.html.twig' %}
+
+{% block title %}Fichiers{% endblock %}
+
+{% block body %}
+    <h1>Fichiers</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>IsActive</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fichier in fichiers %}
+            <tr>
+                <td>{{ fichier.id }}</td>
+                <td>{{ fichier.image }}</td>
+                <td>{{ fichier.isActive ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_fichier_show', {'id': fichier.id}) }}">show</a>
+                    <a href="{{ path('app_fichier_edit', {'id': fichier.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fichier_new') }}">Create new</a>
+{% endblock %}

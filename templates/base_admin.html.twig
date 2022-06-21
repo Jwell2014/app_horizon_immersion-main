@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="globalBG1 {% if app.request.requesturi == "/enigmeUn/" or app.request.requesturi == "/admin"  or app.request.requesturi == "/enigmeDeux/"  or app.request.requesturi == "/enigmeTrois/"  or app.request.requesturi == "/sessions"  or app.request.requesturi == "/participants/"  or app.request.requesturi == "/agents/" or app.request.requesturi == "/chrono/" %} indexBG{% endif %}">
+<html class="globalBG1 {% if app.request.requesturi == "/enigmeUn/" or app.request.requesturi == "/admin"  or app.request.requesturi == "/enigmeDeux/"  or app.request.requesturi == "/enigmeTrois/"  or app.request.requesturi == "/session"  or app.request.requesturi == "/participants/"  or app.request.requesturi == "/agents/" or app.request.requesturi == "/ParamGlobaux/" %} indexBG{% endif %}">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Welcome!{% endblock %}</title>
@@ -21,7 +21,7 @@
 
 
 </head>
-<body class="globalBG1 {% if app.request.requesturi == "/enigmeUn/" or app.request.requesturi == "/admin"  or app.request.requesturi == "/enigmeDeux/"  or app.request.requesturi == "/enigmeTrois/"  or app.request.requesturi == "/sessions/"  or app.request.requesturi == "/participants/"  or app.request.requesturi == "/agents/" or app.request.requesturi == "/chrono/" %} indexBG{% endif %}">
+<body class="globalBG1 {% if app.request.requesturi == "/enigmeUn/" or app.request.requesturi == "/admin"  or app.request.requesturi == "/enigmeDeux/"  or app.request.requesturi == "/enigmeTrois/"  or app.request.requesturi == "/session/"  or app.request.requesturi == "/participants/"  or app.request.requesturi == "/agents/" or app.request.requesturi == "/settings/" %} indexBG{% endif %}">
 
 {% block body %}
     {% include("admin_interface/parts/sidebar.html.twig") %}

@@ -1,0 +1,11 @@
+{% extends 'base_ju.html.twig' %}
+
+{% block title %}Nouveau Fichier{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouveau fichier</h1>
+
+    {{ include('admin_interface/fichier/_form.html.twig', {button_label: 'Créer'}) }}
+
+    <a href="{{ path('app_fichier_index') }}">back to list</a>
+{% endblock %}

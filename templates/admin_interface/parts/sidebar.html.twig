@@ -30,8 +30,8 @@
             </ul>
             <div class="divider border-bottom mt-5"></div>
             <ul class="navList my-3 nav d-flex flex-column justify-content-center align-items-start  align-items-center navUl">
-                <li class="nav-item navSidebar1 {% if app.request.requesturi == "/sessions/"%} buttonNavStyle1{% endif %}  mb-3">
-                    <a href="{{ path("app_sessions_index") }}" class="nav-link d-flex text-dark {% if app.request.requesturi == "/sessions/"%} text-white{% endif %} mx-auto my-auto">
+                <li class="nav-item navSidebar1 {% if app.request.requesturi == "/session/"%} buttonNavStyle1{% endif %}  mb-3">
+                    <a href="{{ path("app_session_index") }}" class="nav-link d-flex text-dark {% if app.request.requesturi == "/session/"%} text-white{% endif %} mx-auto my-auto">
                         <i class="fa-solid fa-2xl pt-1 mx-auto fa-list justify-content-end"></i>
                         <p class="mb-0 d-flex align-items-center sidebarTitle ps-3">SESSIONS</p>
                     </a>
@@ -52,7 +52,7 @@
             <div class="divider border-bottom mt-5"></div>
             <ul class="navList my-3 nav d-flex flex-column justify-content-center align-items-start  align-items-center navUl">
                 <li class="nav-item navSidebar1  mb-3">
-                    <a href="{{ path('app_chrono_index') }}" class="nav-link d-flex text-dark mx-auto my-auto">
+                    <a href="{{ path('app_settings_index') }}" class="nav-link d-flex text-dark mx-auto my-auto">
                         <i class="fa-solid fa-gear fa-2xl pt-1 mx-auto justify-content-end"></i>
                         <p class="mb-0 d-flex align-items-center sidebarTitle ps-3">PARAMÈTRES GLOBAUX</p>
                     </a>
@@ -66,7 +66,7 @@
             </ul>
         </div>
         <a href="{{ path("app_logout") }}"
-           class="text-light text-decoration-none py-3 text-center font-weight-bold w-100 {% if app.request.requesturi == "/enigmeUn/" or app.request.requesturi == "/sessions/" %} decoButton1 {% elseif app.request.requesturi == "/enigmeDeux/" or app.request.requesturi == "/participants/" %} decoButton2 {% else %} decoButton3 {% endif %}"><i class="fa-solid fa-power-off me-3"></i><span
+           class="text-light text-decoration-none py-3 text-center font-weight-bold w-100 {% if app.request.requesturi == "/enigmeUn/" or app.request.requesturi == "/session/" %} decoButton1 {% elseif app.request.requesturi == "/enigmeDeux/" or app.request.requesturi == "/participants/" %} decoButton2 {% else %} decoButton3 {% endif %}"><i class="fa-solid fa-power-off me-3"></i><span
                     class="sidebarTitle ">{{ 'Déconnexion'|upper }}</span></a>
     </div>
 </div>

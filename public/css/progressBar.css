@@ -1,0 +1,48 @@
+.modal-custom{
+    max-width: 1300px !important;
+}
+
+.progress-bar {
+    position: relative;
+    display: inline-block;
+    height: 25px;
+    width: 200px;
+    background: linear-gradient(to bottom, #8fe4bf 99.9%, transparent 99.9%), radial-gradient(circle at 50% 50%, #8fe4bf 25%, transparent 30%);
+    background-position: 50% 0%, 50% 0%;
+    background-size: 5px 100%, 50px 50px;
+    /* 5px is the thickness of the bar, 50px is 1/8th of the height */
+
+    background-repeat: no-repeat, repeat-y;
+}
+
+.progress-bar-vertical {
+    position: relative;
+    display: inline-block;
+    height: 25px;
+    width: 1225px;
+    background: linear-gradient(to right, #8fe4bf 99.9%, transparent 99.9%), radial-gradient(circle at 25% 50%, #8fe4bf 25%, transparent 30%);
+    background-position: 0% 50%, 0% 50%;
+    background-size: 100% 5px, 50px 50px;
+    /* 5px is the thickness of the bar, 50px is 1/8th of the height */
+
+    background-repeat: no-repeat, repeat-x;
+}
+
+.progress-now-vertical {
+    position: absolute;
+    height: 100%;
+    background: linear-gradient(to right, #00b164 99.9%, transparent 99.9%), radial-gradient(circle at 25% 50%, #00b164 25%, transparent 30%);
+    background-position: 0% 50%, 0% 50%;
+    background-size: 100% 5px, 50px 50px;
+    background-repeat: no-repeat, repeat-x;
+    z-index: 1;
+}
+
+.progressBar{
+    width:1000px;
+    height: 25px;
+    padding: 10px;
+    margin: 4px;
+    text-align: center;
+}
+

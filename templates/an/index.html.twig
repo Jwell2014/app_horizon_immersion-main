@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ANController!{% endblock %}
+
+{% block body %}
+
+    <div class="text-center">
+        <h1 class="mb-5">Plan Assemblée Nationale</h1>
+        <div class="col-10 ms-5">
+            <div class="an1">
+                <div class="an1div1 text-white button" style="color:#fff">
+                    <button class="togg1">A6</button>
+                    <span class="target  ms-5 mt-1 hidden d1"></span>
+                </div>
+                <div class="an1div2 button">
+                    <button>Commission des lois</button>
+                    <span class="target ms-5 mt-1 hidden d1"></span>
+
+                </div>
+                <div class="an1div3 button">
+                    <button>Affaires culturelles</button>
+                    <span class="target ms-5 mt-1 hidden d1"></span>
+                </div>
+                <div class="an1div4 text-white button" style="color:#fff">
+
+                    <button>A8 & escalier +1</button>
+                    <span class="target ms-5 mt-1 hidden d1"></span>
+                </div>
+                <div class="an1div5 button">
+
+                    <button>Stock</button>
+                    <span class="target ms-5 mt-1 hidden d1"></span>
+
+                </div>
+                <div class="an1div6 button">
+
+                    <button>Stock</button>
+                    <span class="target ms-5 mt-1 hidden d1"></span>
+                </div>
+                <div class="an1div7 button">
+
+                    <button>Bibliothèque</button>
+                    <span class="target ms-5 mt-1 hidden d1"></span>
+                </div>
+                <div class="an1div8 text-white button" style="color:#fff">
+
+                    <button>A7</button>
+                    <span class="target ms-5 mt-1 hidden d1"></span>
+                </div>
+            </div>
+        </div>
+        <script>
+            let btns = document.querySelectorAll('.button');
+            let spans = document.querySelectorAll('.d1');
+
+            let hidden = true;
+
+            btns.forEach( btn => {
+                btn.addEventListener('click', () => {
+                    spans.forEach(span => {
+                        span.classList.add('hidden')
+                    });
+                    btn.querySelector('span').classList.toggle('hidden');
+                });
+            });
+        </script>
+        <hr>
+
+        <div class="col-10 ms-5">
+            <div class="an2">
+                <div class="an2div1">Salon des Éléments</div>
+                <div class="an2div2">Salon des Saisons</div>
+                <div class="an2div3">Salon des Jeux</div>
+                <div class="an2div4">Cabinet du Départ</div>
+                <div class="an2div5">Buvette des Parlementaires</div>
+                <div class="an2div6 text-white">A3</div>
+                <div class="an2div7 text-white">A1</div>
+                <div class="an2div8 text-white">A2</div>
+                <div class="an2div9">Salon des Stucs</div>
+                <div class="an2div10">Salle à Manger</div>
+                <div class="an2div11">Conférence des Présidents</div>
+                <div class="an2div12">Commission de la Finance</div>
+                <div class="an2div13 text-white">Escalier -1</div>
+                <div class="an2div14">Jardin des Quatre Colones</div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="col-10 ms-5 mb-5">
+            <div class="an3">
+                <div class="an3div1 text-white">A4</div>
+                <div class="an3div2 text-white">A5</div>
+                <div class="an3div3">Salle de Défense</div>
+                <div class="an3div4 text-white">Escalier -1</div>
+                <div class="an3div5">Salle du Patrimoine</div>
+                <div class="an3div6"> </div>
+                <div class="an3div7">Salle ds Conférences</div>
+                <div class="an3div8">Hémicycle</div>
+                <div class="an3div9 text-white">A0</div>
+                <div class="an3div10 pt-5">Cour d'Honneur</div>
+                <div class="an3div11">Escalier</div>
+            </div>
+        </div>
+
+
+    </div>
+{% endblock %}

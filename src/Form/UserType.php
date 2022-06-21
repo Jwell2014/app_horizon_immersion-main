@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\Entity\User;
-use App\Entity\Sessions;
+use App\Entity\Session;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
@@ -26,7 +26,7 @@ class UserType extends AbstractType
                 'data' => ['ROLE_PARTICIPANT'],
             ))
             ->add('Session', EntityType::class, [
-                'class' => Sessions::class,
+                'class' => Session::class,
                 'choice_label' => 'NomDeSession',
                 'placeholder' => 'Veuillez choisir une session',
                 'label' => "Nom de session",
@@ -49,7 +49,7 @@ class UserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => User::class, Sessions::class
+            'data_class' => User::class, Session::class
 
         ]);
     }

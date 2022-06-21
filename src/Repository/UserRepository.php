@@ -100,8 +100,8 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     {
         return $this->createQueryBuilder('u')
             ->select('u')
-            ->leftJoin('App\Entity\Sessions', 's', 'WITH', 'u.session_id = s.id')
-//            ->groupBy('u.session_id')
+            ->leftJoin('App\Entity\Session', 's', 'WITH', 'u.session_id = s.id')
+            ->groupBy('u.session_id')
             ->getQuery()
             ->getResult();
     }

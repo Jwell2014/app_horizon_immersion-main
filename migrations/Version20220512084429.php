@@ -20,12 +20,12 @@ final class Version20220512084429 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE chrono ADD zero INT NOT NULL');
+        $this->addSql('ALTER TABLE ParamGlobaux ADD zero INT NOT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE chrono DROP zero');
+        $this->addSql('ALTER TABLE ParamGlobaux DROP zero');
     }
 }

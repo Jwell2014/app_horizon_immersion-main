@@ -27,7 +27,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'integer', nullable: true)]
     private $session_id;
 
-    #[ORM\ManyToOne(targetEntity: Sessions::class, inversedBy: 'users')]
+    #[ORM\ManyToOne(targetEntity: Session::class, inversedBy: 'users')]
     #[ORM\JoinColumn(nullable: true)]
     private $Session;
 
@@ -103,12 +103,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getSession(): ?Sessions
+    public function getSession(): ?Session
     {
         return $this->Session;
     }
 
-    public function setSession(?Sessions $Session): self
+    public function setSession(?Session $Session): self
     {
         $this->Session = $Session;
 

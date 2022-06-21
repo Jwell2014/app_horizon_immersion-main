@@ -22,14 +22,14 @@ final class Version20220503125437 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE user DROP FOREIGN KEY session_id');
         $this->addSql('DROP INDEX UNIQ_8D93D649F85E0677 ON user');
-        $this->addSql('ALTER TABLE user ADD CONSTRAINT FK_8D93D649613FECDF FOREIGN KEY (session_id) REFERENCES sessions (id)');
+        $this->addSql('ALTER TABLE user ADD CONSTRAINT FK_8D93D649613FECDF FOREIGN KEY (session_id) REFERENCES session (id)');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE user DROP FOREIGN KEY FK_8D93D649613FECDF');
-        $this->addSql('ALTER TABLE user ADD CONSTRAINT session_id FOREIGN KEY (session_id) REFERENCES sessions (id) ON UPDATE CASCADE ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE user ADD CONSTRAINT session_id FOREIGN KEY (session_id) REFERENCES session (id) ON UPDATE CASCADE ON DELETE CASCADE');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_8D93D649F85E0677 ON user (username)');
     }
 }
