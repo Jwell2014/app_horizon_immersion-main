@@ -33,6 +33,7 @@ class DocumentType extends AbstractType
                             'image/jpeg',
                             'image/png',
                             'image/svg+xml',
+                            'video/mp4',
                         ],
                         'mimeTypesMessage'=> 'Veuillez télécharger une image JPG ou PNG',
                     ]),
