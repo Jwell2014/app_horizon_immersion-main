@@ -1,0 +1,95 @@
+.modalChat{
+    background-color: rgba(0,0,0,0.75);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 56px;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-family: 'Cairo', sans-serif;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.modalChat.show{
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.modalChat-content{
+    background-color: #AAAAAA;
+    max-width: 30vw;
+    flex: 1;
+    border-radius: 20px 20px 0 0;
+    position: relative;
+    padding: 10px;
+}
+
+.modalChat-close{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.modalChat-header{
+    border-bottom: 1px solid black;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modalChat-body{
+    max-height: 35vh;
+    overflow-y: auto;
+}
+
+.smsR{
+    text-align: right;
+    background-color: #8c8888;
+    border-radius: 20px;
+    padding-right: 20px;
+    margin: 10px 20px 10px 100px;
+    box-shadow: 0 0 13px black;
+}
+
+.smsL{
+    background-color: #5eb5e0;
+    border-radius: 20px;
+    padding-left: 20px;
+    width: 80%;
+    box-shadow: 0px 0px 13px black;
+    margin-left: 20px;
+}
+
+.modalChat-footer{
+    border-top: 1px solid black;
+    margin-top: 20px;
+}
+.smsText{
+    background-color: #1C3350;
+    border-radius: 20px;
+    color: white;
+    padding: 10px 10px 10px 20px;
+    margin-top: 10px;
+    width: 70%;
+    font-size: 20px;
+    box-shadow: 0px 0px 13px black;
+}
+
+.smsEnvoi {
+    position: absolute;
+    bottom: 21px;
+    right: 10px;
+    background-color: green;
+    border-radius: 20px;
+    width: 20%;
+    height: 6%;
+    color: white;
+    box-shadow: 0px 0px 13px black;
+}
+
