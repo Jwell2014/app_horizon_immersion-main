@@ -194,7 +194,7 @@ footer{
     height: 80vh;
     position: absolute;
     top: 0;
-    left: 180px;
+    left: 61%;
     background: #333;
     z-index: -1;
     color: white;
@@ -229,48 +229,6 @@ footer{
 }
 
 
-/*.dossier1 {*/
-/*    width: 270px;*/
-/*    height: 270px;*/
-/*}*/
-
-/*.text1{*/
-/*    position: absolute;*/
-/*    width: 69px;*/
-/*    height: 24px;*/
-/*    left: 144px;*/
-/*    top: 393px;*/
-/*}*/
-/*.dossier2{*/
-/*    position: absolute;*/
-/*    width: 270px;*/
-/*    height: 270px;*/
-/*    left: 48px;*/
-/*    top: 377.93px;*/
-/*}*/
-/*.text2{*/
-/*    position: absolute;*/
-/*    width: 93px;*/
-/*    height: 26px;*/
-/*    left: 144px;*/
-/*    top: 560px;*/
-/*}*/
-
-/*.dossier3{*/
-/*    position: absolute;*/
-/*    width: 270.93px;*/
-/*    height: 270.93px;*/
-/*    left: 49px;*/
-/*    top: 524px;*/
-/*}*/
-
-/*.text3{*/
-/*    position: absolute;*/
-/*    width: 93px;*/
-/*    height: 26px;*/
-/*    left: 144px;*/
-/*    top: 702px;*/
-/*}*/
 
 a{
     display: block;
@@ -554,11 +512,26 @@ a.active{
     background-color: rgba(15, 15, 15, 0.55);
 }
 
+@media screen and (min-width: 1024px) and (max-width: 1600px){
 
-@media screen and (min-width: 1100px) {
+.sub-sousDoc{
+    left: -414px;
+    top: 276px;
+    height: 550px;
+}
+
+
+
+}
+
+@media screen and (min-width: 1100px){
     .imgCenter{
         right: 25%;
     }
+
+
+
+
 }
 @media screen and (min-width: 980px) and (max-width: 1100px){
     .imgCenter{
@@ -569,6 +542,7 @@ a.active{
         position: absolute;
         right: 0;
         top: 0;
+        z-index: -1;
     }
 
     #chrono{
@@ -576,7 +550,22 @@ a.active{
         right: 0;
         width: 350px;
         top: 15%;
+        z-index: -1;
     }
+
+    .sub-doc{
+        left: 95px;
+        width: 600px;
+        height: 300px
+    }
+
+    .sub-sousDoc{
+        left: -400px;
+        top: 300px;
+        width: 600px;
+        height: 541px;
+    }
+
 }
 
 @media screen and (min-width: 500px) and (max-width: 980px){
@@ -605,6 +594,7 @@ a.active{
         width: 360px;
         left: 30%;
         top: 0;
+        z-index: -1;
     }
 
     #chrono{
@@ -612,10 +602,39 @@ a.active{
         left: 30%;
         width: 350px;
         top: 15%;
+        z-index: -1;
     }
 
     .logoFooterR {
         background-color: #566D7E !important;
     }
 
+   .sub-nav{
+       width: 200px;
+       top: -661px;
+       left: -101px;
+
+    }
+
+   .navImage{
+
+   }
+
+    .sub-nav a{
+        padding: 0;
+    }
+
+    .sub-doc{
+        left: -4px;
+        width: 528px;
+        height: 28vh;
+
+    }
+
+    .sub-sousDoc{
+        left: -499px;
+        width: 528px;
+        height: 52vh;
+        top: 294px;
+    }
 }

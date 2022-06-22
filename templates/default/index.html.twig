@@ -3,983 +3,304 @@
 {% block title %}Hello DefaultController!{% endblock %}
 
 {% block body %}
-    <div class="container-fluid" id="main">
-        <div class="row">
+<div class="container-fluid" id="main">
+    <div class="row">
 
 
-            {# nav verticale #}
-            <div class="col-lg-2 ps-0">
-                <nav class="side-nav">
-                    <div class="wrapper">
-                        <div class="nav-bloc n-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                 class="bi bi-folder iconeDoc" viewBox="0 0 16 16">
-                                <path d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4H2.19zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707z"/>
-                            </svg>
-                            <div class="sub-nav">
-                                <h2>Dossier</h2>
-                                {% for index, category in categories %}
-                                    <div>
-                                        <a class="openDocument" data-index={{ index }}>
-                                            <img class="navImage"
-                                                 src="{{ asset('images/category/' ~ category.image) }}">
-                                            <p class="police">{{ category.nom }}</p>
-                                        </a>
-                                    </div>
-                                    <div class="sub-doc" :id="{{ category.nom }}" data-index={{ index }}>
-                                        <h2>Document {{ category.nom }}</h2>
-
-                                        {% for jindex, document in documents %}
-                                            {% if document.category.id == category.id %}
-                                                <div class="linkImage">
-                                                    <a data-index={{ index }} data-subindex={{ jindex }}>
-                                                        <img class="navImage" src="{{ asset("/images/picture.svg") }}">
-                                                        <p>{{ document.nom }}</p>
-                                                    </a>
-                                                </div>
-                                            {% endif %}
-
-                                        {% endfor %}
-
-                                    </div>
+        {#nav verticale#}
+        <div class="col-lg-2 ps-0">
+            <nav class="side-nav">
+                <div class="wrapper">
+                    <div class="nav-bloc n-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-folder iconeDoc" viewBox="0 0 16 16">
+                            <path d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4H2.19zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707z"/>
+                        </svg>
+                        <div class="sub-nav">
+                            <h2>Dossier</h2>
+                            {% for index, category in categories %}
+                                <div>
+                                    <a class="openDocument" data-index={{index}}>
+                                        <img class="navImage" src="{{ asset('images/category/' ~ category.image) }}">
+                                        <p class="police">{{ category.nom }}</p>
+                                    </a>
+                                </div>
+                                <div class="sub-doc" :id="{{category.nom}}" data-index={{index}}>
+                                    <h2>Document {{ category.nom }}</h2>
 
                                     {% for jindex, document in documents %}
                                         {% if document.category.id == category.id %}
-
-                                            <div class="sub-sousDoc" data-index={{ index }} data-subindex={{ jindex }}
-                                                 :id="{{ document.nom }}">
-                                                <h2>Aperçu</h2>
-
-                                                <img class="img-thumbnail displayed"
-                                                     src="{{ asset('images/document/' ~ document.contenu) }}">
-                                                <p class="text-center pt-2">{{ document.nom }}</p>
-                                                <p class="text-center pt-2">{{ document.description }}</p>
-
+                                            <div class="linkImage">
+                                                <a data-index={{index}} data-subindex={{jindex}}>
+                                                    <img  class="navImage" src="{{ asset("/images/picture.svg") }}">
+                                                    <p>{{ document.nom }}</p>
+                                                </a>
                                             </div>
-
                                         {% endif %}
 
                                     {% endfor %}
 
+                                </div>
+
+                                {% for jindex, document in documents %}
+                                    {% if document.category.id == category.id %}
+
+                                        <div class="sub-sousDoc" data-index={{index}} data-subindex={{jindex}}  :id="{{document.nom}}">
+                                            <h2>Aperçu</h2>
+
+                                            <img class="img-thumbnail displayed" src="{{ asset('images/document/' ~ document.contenu) }}">
+                                            <p class="text-center pt-2">{{ document.nom }}</p>
+                                            <p class="text-center pt-2">{{ document.description }}</p>
+
+                                        </div>
+
+                                    {% endif %}
+
                                 {% endfor %}
 
-                            </div>
+                            {% endfor %}
+
                         </div>
                     </div>
-                </nav>
-            </div>
-
-
-            <div class="col-lg-2 dispo">
-
-
-                {#            {% for category in categories %} #}
-
-                {#            <!-- Button Image --> #}
-                {#            <button type="button" class="btn dossier1" data-bs-toggle="modal" data-bs-target="#dossierImage"> #}
-                {#                <img class="" src="{{ asset("/images/dossier.svg") }}"> #}
-                {#                <a class="btn btn-info" href="{{ path('voir', {'id': category.id}) }}">{{ category.nom }}</a> #}
-                {#            </button> #}
-                {#            {% endfor %} #}
-
-                {#             <!-- Modal Images --> #}
-
-                {#            <div class="modal fade" id="dossierImage" tabindex="-1" aria-labelledby="dossierImage" aria-hidden="true"> #}
-                {#                <div class="modal-dialog modal-xl"> #}
-                {#                    <div class="modal-content" style="margin-top: 125px"> #}
-
-
-
-                {#                        <div class="modal-header py-0 px-16"> #}
-                {#                            <img class="" src="{{ asset('images/category/') }}"> #}
-                {#                            <h3 class="mx-2 pt-2">Dossier</h3> #}
-                {#                            <button type="button" class="btn-close ferm" data-bs-dismiss="modal" aria-label="Close"></button> #}
-                {#                        </div> #}
-
-
-
-                {#                        <div class="modal-body container"> #}
-
-                {#                            <div class="row"> #}
-                {#                                <div class="col-lg-2"> #}
-
-                {#                                    {% for category in categories %} #}
-                {#                                    <img class="navDossier active" id="docImg" src="{{ asset("/images/dossier.svg") }}"> #}
-                {#                                    <p class="text-center">{{ category.nom }}</p> #}
-                {#                                    {% endfor %} #}
-
-                {#                                </div> #}
-
-
-                {#                                <div class="col-lg-4 nav2 visible"> #}
-
-                {#                                    <div class="linkImage"> #}
-                {#                                        <a> #}
-                {#                                            <img  class="navImage" src="{{ asset("/images/picture.svg") }}"> #}
-                {#                                            <p>Avis_de_Recherche_Nicolas_Zlatesky.jpeg</p> #}
-                {#                                        </a> #}
-                {#                                    </div> #}
-
-                {#                                    <div class="linkImage"> #}
-                {#                                        <a id="info"> #}
-                {#                                            <img class="navImage"  src="{{ asset("/images/picture.svg") }}"> #}
-                {#                                            <p>RAPPORT_AVALANCHE_Fino.png</p> #}
-                {#                                        </a> #}
-                {#                                    </div> #}
-                {#                                    <div class="linkImage"> #}
-                {#                                        <a> #}
-                {#                                            <img class="navImage" src="{{ asset("/images/picture.svg") }}"> #}
-                {#                                            <p>Champs_Actuel.png</p> #}
-                {#                                        </a> #}
-                {#                                    </div> #}
-                {#                                    <div class="linkImage"> #}
-                {#                                        <a> #}
-                {#                                            <img class="navImage" src="{{ asset("/images/picture.svg") }}"> #}
-                {#                                            <p>Media_Monde.png</p> #}
-                {#                                        </a> #}
-                {#                                    </div> #}
-                {#                                    <div class="linkImage"> #}
-                {#                                        <a><img class="navImage" src="{{ asset("/images/picture.svg") }}"> #}
-                {#                                            <p>News_France.png</p> #}
-                {#                                        </a> #}
-                {#                                    </div> #}
-
-                {#                                </div> #}
-                {#                                <div class="col-lg-6 nav3"> #}
-                {#                                    <img class="img-thumbnail" src="{{ asset("/images/C.A.T_RAPPORT_AVALANCHE_FINO.png") }}"> #}
-                {#                                    <p class="text-center">Avis_de_Recherche_Nicolas_Zlatesky.jpeg</p> #}
-                {#                                    <p class="text-center">Image PNG - 415 Ko</p> #}
-                {#                                </div> #}
-
-                {#                            </div> #}
-                {#                        </div> #}
-
-                {#                        <div class="modal-footer"> #}
-                {#                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> #}
-                {#                        </div> #}
-                {#                    </div> #}
-                {#                </div> #}
-                {#            </div> #}
-
-
-                {#            <!-- Button Video --> #}
-                {#            <button type="button" class="btn dossier2" data-bs-toggle="modal" data-bs-target="#dossierVideo"> #}
-                {#                <img class="pt-5" src="{{ asset("/images/dossier.svg") }}"> #}
-                {#                <p class="text2">Videos</p> #}
-                {#            </button> #}
-                {#             <!-- Modal video--> #}
-                {#            <div class="modal fade" id="dossierVideo" tabindex="-1" aria-labelledby="dossierVideo" aria-hidden="true"> #}
-                {#                <div class="modal-dialog modal-xl"> #}
-                {#                    <div class="modal-content" style="margin-top: 125px"> #}
-
-                {#                        <div class="modal-header py-0 px-16"> #}
-                {#                            <img class="" src="{{ asset("/images/video.svg") }}"> #}
-                {#                            <h3 class="mx-2 pt-2">Dossier Videos</h3> #}
-                {#                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> #}
-                {#                        </div> #}
-                {#                        <div class="modal-body"> #}
-                {#                            ... #}
-                {#                        </div> #}
-                {#                        <div class="modal-footer"> #}
-                {#                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> #}
-                {#                        </div> #}
-                {#                    </div> #}
-                {#                </div> #}
-                {#            </div> #}
-
-
-                {#            <!-- Button Archives --> #}
-                {#            <button type="button" class="btn dossier3" data-bs-toggle="modal" data-bs-target="#dossierArchives"> #}
-                {#                <img class="pt-5" src="{{ asset("/images/dossier.svg") }}"> #}
-                {#                <p class="text3">Archives</p> #}
-                {#            </button> #}
-                {#            <!-- Modal Archives--> #}
-                {#            <div class="modal fade" id="dossierArchives" tabindex="-1" aria-labelledby="dossierArchives" aria-hidden="true"> #}
-                {#                <div class="modal-dialog modal-xl"> #}
-                {#                    <div class="modal-content" style="margin-top: 125px"> #}
-                {#                        <div class="modal-header"> #}
-                {#                            <img class="" src="{{ asset("/images/tableau.svg") }}"> #}
-                {#                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> #}
-                {#                        </div> #}
-
-                {#                        <div class="modal-body"> #}
-                {#                            ... #}
-                {#                        </div> #}
-                {#                        <div class="modal-footer"> #}
-                {#                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> #}
-                {#                        </div> #}
-                {#                    </div> #}
-                {#                </div> #}
-                {#            </div> #}
-
-
-            </div>
-
-
-            <div class="col-lg-4">
-                <img class="imgCenter" src="{{ asset("/images/LogoNoir.png") }}">
-            </div>
-
-            <div class="col-lg-1"></div>
-
-            <div class="col-lg-3">
-                <div class="timer">
-                    <div class="carre ms-3">
-                        <h3 id="hour">11</h3>
-                    </div>
-                    <div class="text-center point">:</div>
-                    <div class="carre">
-                        <h3 id="minute">59</h3>
-                    </div>
-                    <div class="text-center point">:</div>
-                    <div class="carre me-3">
-                        <h3 id="second">55</h3>
-                    </div>
                 </div>
+            </nav>
+        </div>
 
-                <div id="chrono" class="col-lg-12 mx-auto">
-                    <form name="form_main">
-                        <div class="d-flex justify-content-evenly chronoControl">
-                            <button type="button" name="start" class="btn-grad w-25 mx-auto mt-2">
-                                <i class="bi bi-play"></i>
-                            </button>
-                            <button type="button" name="pause" class="btn-grad w-25 mx-auto mt-2">
-                                <i class="bi bi-pause"></i>
-                            </button>
-                            <button type="button" name="reset" class="btn-grad w-25 mx-auto mt-2">
-                                <i class="bi bi-arrow-clockwise"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
 
-            </div>
+
+
+
+
+
+        <div class="col-lg-2 dispo">
+
+
 
 
         </div>
 
 
-        <footer>
-            <div class="container-fluid">
-                <div class="row">
 
-                    <div class="col-sm-1">
-                        <div id="tskbLogo" class="position-absolute">
-                            <div class="tskbStartMenu position-relative invisible"> {# invisible #}
-                                <div class="d-flex flex-column justify-content-between h-100">
-                                    <div class="tskbStartMenuItem d-flex py-3 pl-3 font-weight-bold align-items-center bb">
-                                        <i class="bi bi-list fa-2x mr-3 text-black mx-3"></i>DÉMARRER
-                                    </div>
-                                    <div class="bb">
-                                        <div class="tskbStartMenuItem userInfo d-flex my-3 align-items-center ">
-                                            <i class="bi bi-person-circle fa-2x mx-3 text-success"></i>{{ app.user.username|capitalize }}
-                                        </div>
-                                        <a href="{{ path('app_logout') }}"
-                                           class="tskbStartMenuItem d-flex my-3 align-items-center text-decoration-none text-danger">
-                                            <i class="bi bi-power fa-2x mx-3 text-danger"></i>DÉCONNEXION
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="{{ asset('/images/horizon_logo.png') }}" alt="Démarrer" class="px-4 imgMenu"
-                                 title="Démarrer">
-                        </div>
-                    </div>
+        {#logo#}
+        <div class="col-lg-4">
+            <img class="imgCenter" src="{{ asset("/images/LogoNoir.png") }}">
+        </div>
 
-                    <div class="col-md-2 col-sm-3 d-flex justify-content-between px-0">
-                        <!-- Button tableau-->
-                        <button type="button" class="btn btnApli" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <img class="logoTab" src="{{ asset("/images/tableau.svg") }}">
-                        </button>
-                        <!-- Modal tableau-->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                             aria-hidden="true">
-                            <div class="modal-dialog modal-xl mx-0">
+        <div class="col-lg-1"></div>
 
-                                <div class="modal-content1">
-
-                                    <div class="modal-body">
-                                        {{ include('default/tableau.html.twig') }}
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
-                                        </button>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <!-- Button RATP -->
-                        <button type="button" class="btn btnApli" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal2">
-                            <img class="logoRatp" src="{{ asset("/images/ratp2.svg") }}">
-                        </button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
-                             aria-hidden="true">
-                            <div class="modal-dialog modal-custom" style="margin-top: 100px">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <img class="" src="{{ asset("/images/ratp2.svg") }}">
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                    </div>
-
-                                    <div class="modal-body">
-
-                                        <img src="{{ asset('images/ligne3.jpg') }}" alt="ligne 1 du métro parisien"
-                                             width="1250px">
-
-                                        <div class="progressBar">
-                                            <div class='progress-bar-vertical'>
-                                                <div class='progress-now-vertical'></div>
-                                            </div>
-                                        </div>
-
-                                        <div id="enigme" class="container">
-                                            <div class="row">
-                                                <div class="col-lg-12 pt-2" id="fondEnigme">
-                                                    <h2 class="text-center">ENIGME</h2>
-                                                </div>
-                                                <div class="col-lg-12 pt-3">
-                                                    <div class="row justify-content-between">
-                                                        <div class="col-12">
-                                                            <p class="text-center">Veuillez compléter ces suites pour
-                                                                ralentir le train</p>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-6">
-                                                                {% for enigme1 in enigmes1 %}
-                                                                    <div class="text-center mb-1 enigmeInput enigmeText">{{ enigme1.question }}
-                                                                        - ?
-                                                                    </div>
-                                                                {% endfor %}
-                                                            </div>
-                                                            <div class="col-6 my-auto">
-                                                                <div class="d-flex flex-column justify-content-center transfertInput">
-                                                                    <input type="text"
-                                                                           class="p-3 text-center enigmeInput mb-1"
-                                                                           placeholder="Entrez une proposition">
-                                                                    <button type="button"
-                                                                            class="btn btn-success col-8 mx-auto enigmeInput">
-                                                                        TRANSFÉRER
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-
-                                        <img class="metro1" src="{{ asset("/images/metro1.svg") }}">
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Button Assemblée Nationale-->
-                        {% for appliAN in an %}
-                            <button type="button" class="btn btnApli {% if appliAN.isActive == 0 %}hidden{% endif %}"
-                                    data-bs-toggle="modal" data-bs-target="#modalAN"><img class=""
-                                                                                          src="{{ asset("images/" ~ appliAN.nom ~ ".png") }}"
-                                                                                          height="40px" width="40px">
-                            </button>
-                        {% endfor %}
-                        <!-- Modal -->
-                        <div class="modal fade mx-auto" id="modalAN" tabindex="-1" aria-labelledby="exampleModalLabel"
-                             aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-scrollable modal-xl">
-                                <div class="modal-content modal-content-an mx-auto">
-                                    <div class="modal-header text-center">
-                                        <div class="d-flex justify-content-center">
-                                            <h3 class="text-center">Plan de l'Assemblée Nationale</h3>
-                                        </div>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row justify-content-around my-3">
-                                            {% for fichierPapier in fichierPapier %}
-                                                {% for dossier in dossierPapier %}
-                                                    <button class="buttonPlan btn btn-dark 1 col-3 {% if dossier.isActive == 0 %}hidden{% endif %}"
-                                                            data-index="{{ fichierPapier.id }}">{{ fichierPapier.image }}</button>
-                                                {% endfor %}
-                                            {% endfor %}
-                                        </div>
-                                        {% for fichierPapier in fichierPapier %}
-                                            <div class="text-center">
-                                                <img class="plan my-5 hide" data-index="{{ fichierPapier.id }}"
-                                                     src="{{ asset("images/" ~ fichierPapier.image ~ ".jpg") }}"
-                                                     height="500px" width="700px">
-                                            </div>
-                                        {% endfor %}
-
-                                        <div class="col-10 ms-5">
-                                            {% for dossier in dossierNum %}
-                                                <div class="accordion accordion-flush mt-5  {% if dossier.isActive == 0 %}hidden{% endif %}"
-                                                     id="accordionExample">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="headingOne">
-                                                            <button class="accordion-button collapsed planNum"
-                                                                    type="button" data-bs-toggle="collapse"
-                                                                    data-bs-target="#collapseOne" aria-expanded="false"
-                                                                    aria-controls="collapseOne">
-                                                                plan_num_an_1
-                                                            </button>
-                                                        </h2>
-                                                        <div id="collapseOne" class="accordion-collapse collapse"
-                                                             aria-labelledby="headingOne"
-                                                             data-bs-parent="#accordionExample">
-                                                            <div class="accordion-body">
-                                                                <div class="an1">
-                                                                    <div class="an1div1 button  bg-secondary">
-                                                                        <div class="text-center my-3 d-flex flex-column">
-                                                                            <button class="buttonAN mt-2">A6</button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <div class="col-2">
-                                                                                    <span class="target mt-1 hidden d1 targetTer"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="an1div2 button  bg-secondary">
-                                                                        <div class="text-center my-3 d-flex flex-column">
-                                                                            <button class="togg1 buttonAN">A7</button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="an1div3 button">
-                                                                        <div class="text-center my-3 d-flex flex-column">
-                                                                            <button class="togg1 buttonAN">
-                                                                                Bibliothèque
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="an1div4 button">
-                                                                        <div class="text-center my-3 d-flex flex-column">
-                                                                            <button class="togg1 buttonAN">Commission
-                                                                                des Lois
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="an1div5 button">
-                                                                        <div class="text-center my-3 d-flex flex-column">
-                                                                            <button class="togg1 buttonAN">Affaires
-                                                                                Culturelles
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="an1div6 button">
-                                                                        <div class="text-center my-3 d-flex flex-column">
-                                                                            <button class="togg1 buttonAN">Stock
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="an1div7 button  bg-secondary">
-                                                                        <div class="text-center my-3 d-flex flex-column">
-                                                                            <button class="buttonAN mt-2">A8</button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <div class="col-2">
-                                                                                    <span class="target mt-1 hidden d1 targetBis"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="an1div8 button">
-                                                                        <div class="text-center my-3 d-flex flex-column">
-                                                                            <button class="togg1 buttonAN">Escalier +1
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="headingTwo">
-                                                            <button class="accordion-button collapsed planNum"
-                                                                    type="button" data-bs-toggle="collapse"
-                                                                    data-bs-target="#collapseTwo" aria-expanded="false"
-                                                                    aria-controls="collapseTwo">
-                                                                plan_num_an_2
-                                                            </button>
-                                                        </h2>
-                                                        <div id="collapseTwo" class="accordion-collapse collapse"
-                                                             aria-labelledby="headingTwo"
-                                                             data-bs-parent="#accordionExample">
-                                                            <div class="accordion-body">
-                                                                <div class="an2">
-                                                                    <div class="an2div1 button">
-
-                                                                        <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-3">Escalier -1
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <div class="an2div2 button">
-
-                                                                        <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-3"> Cabinet du
-                                                                                Départ
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="an2div3 button">
-
-                                                                        <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-3">Buvette des
-                                                                                Parlementaires
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <div class="an2div4 button  bg-secondary" style="z-index: 10000">
-
-                                                                        <div class="text-center">
-                                                                            <button class="buttonAN mt-2 ">A1</button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <div class="col-2">
-                                                                                    <span class="target mt-1 hidden d1 targetBis"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <div class="an2div5 button  bg-secondary" style="z-index: 10000" >
-
-                                                                        <div class="text-center">
-                                                                            <button class="buttonAN mt-2">A2</button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <div class="col-2">
-                                                                                    <span class="target mt-1 hidden d1 targetBis"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <div class="an2div6 button  bg-white" style="z-index: 10000;">
-
-                                                                        <div class="text-center my-2 ">
-                                                                            <button class="buttonAN mt-3">Salon des
-                                                                                Stucs
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <div class="an2div7 button bg-white" style="z-index: 10000">
-
-                                                                        <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-3">Salle à
-                                                                                Manger
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <div class="an2div8 button  bg-secondary">
-
-                                                                        <div class="text-center">
-                                                                            <button class="buttonAN mt-2">A3</button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <div class="col-2">
-                                                                                    <span class="target mt-1 hidden d1 targetBis"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                    </div>
-
-                                                                    <div class="an2div9 button">
-
-                                                                        <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-3">Conférence des
-                                                                                Présidents
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <div class="an2div10 button">
-
-                                                                        <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-3">Commission de
-                                                                                la Finance
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <div class="an2div11 button">
-
-                                                                        <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-3">Escalier -1
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <div class="an2div12 button mt-5">
-
-                                                                        <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-3">Jardin des
-                                                                                Quatre Colones
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <div class="col-2">
-                                                                                <span class="target mt-1 hidden d1 targetBis"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                    </div>
-
-                                                                    <div class="an2div13 button">
-                                                                        <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-2">Salon des
-                                                                                Éléments
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    {#                                                    <div class="div13">Salon des Éléments</div> #}
-                                                                    <div class="an2div14 button">
-
-                                                                        <div class="text-center my-3">
-                                                                            <button class="buttonAN p-3">Salon des
-                                                                                Saisons
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="an2div15 button">
-
-                                                                        <div class="text-center my-2">
-                                                                            <button class="buttonAN mt-3">Salon des
-                                                                                Jeux
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <div class="an2div16  bg-secondary" style="z-index: 100">&nbsp;
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="headingThree">
-                                                            <button class="accordion-button collapsed planNum"
-                                                                    type="button" data-bs-toggle="collapse"
-                                                                    data-bs-target="#collapseThree"
-                                                                    aria-expanded="false" aria-controls="collapseThree">
-                                                                plan_num_an_3
-                                                            </button>
-                                                        </h2>
-                                                        <div id="collapseThree" class="accordion-collapse collapse"
-                                                             aria-labelledby="headingThree"
-                                                             data-bs-parent="#accordionExample">
-                                                            <div class="accordion-body">
-                                                                <div class="an3">
-                                                                    <div class="an3div1 button  bg-secondary">
-                                                                        <div class="text-center my-1">
-                                                                            <button class="buttonAN mt-2">A4</button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <div class="col-2">
-                                                                                    <span class="target mt-1 hidden d1 target4"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="an3div2 button bg-secondary">
-                                                                        <div class="text-center my-1">
-                                                                            <button class="togg1 buttonAN">A5</button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="an3div3 button">
-                                                                        <div class="text-center my-1">
-                                                                            <button class="togg1 buttonAN">Salle de
-                                                                                Défense
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <div class="an3div4 button ">
-                                                                        <div class="text-center my-1">
-                                                                            <button class="togg1 buttonAN">Escalier -1
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="an3div5 button">
-                                                                        <div class="text-center my-1">
-                                                                            <button class="togg1 buttonAN">Salle du
-                                                                                Patrimoine
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="an3div6  bg-secondary"></div>
-                                                                    <div class="an3div7 button">
-                                                                        <div class="text-center my-1">
-                                                                            <div class="row justify-content-center">
-                                                                                <button class="buttonAN mt-2">Salle des Conférences</button>
-                                                                                <div class="row justify-content-center">
-                                                                                    <div class="col-1">&nbsp;</div>
-                                                                                    <div class="col-2">
-                                                                                        <span class="target mt-1 hidden d1 targetTer"></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="an3div8 button">
-                                                                        <div class="text-center my-1">
-                                                                            <button class="buttonAN mt-2">Hémicycle</button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <div class="col-2">
-                                                                                    <span class="target mt-1 hidden d1 targetBis"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="an3div9 button bg-secondary">
-                                                                        <div class="text-center my-1">
-                                                                            <button class="buttonAN mt-2">A0</button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <div class="col-2">
-                                                                                    <span class="target mt-1 hidden d1 targetBis"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="an3div10 pt-5 button">
-                                                                        <div class="text-center my-1">
-                                                                            <button class="buttonAN mt-5">Cour d'honneur</button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <div class="col-2">
-                                                                                    <span class="target mt-1 hidden d1 targetBis"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="an3div11 button">
-                                                                        <div class="text-center my-1">
-                                                                            <button class="togg1 buttonAN">Escalier
-                                                                            </button>
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-1">&nbsp;</div>
-                                                                                <span class="col-1 target mt-1 hidden d1"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            {% endfor %}
-                                        </div>
-
-                                        <script>
-                                            let btns = document.querySelectorAll('.button');
-                                            let spans = document.querySelectorAll('.d1');
-
-                                            let hidden = true;
-
-                                            btns.forEach(btn => {
-                                                btn.addEventListener('click', () => {
-                                                    spans.forEach(span => {
-                                                        span.classList.add('hidden')
-                                                    });
-                                                    btn.querySelector('span').classList.toggle('hidden');
-                                                });
-                                            });
-                                        </script>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-
-                    </div>
-                    <div class="col-lg-6 col-md-12 d-flex justify-content-around pt-2 logoFooterR">
-
-                        {# Button de bettery #}
-                        <a href="">
-                            <img class="pt-1" src="{{ asset("/images/battery.svg") }}" title="Batterie 90%">
-                        </a>
-
-                        {# Button de meteo #}
-                        <a href="">
-                            <img src="{{ asset("/images/temps.svg") }}" title="Temps nuageux">
-                        </a>
-
-                        {# Button de wifi #}
-                        <a href="">
-                            <img src="{{ asset("/images/wifi.svg") }}" title="WIFI activé">
-                        </a>
-
-                        {# Button ouverture du chat #}
-                        <a href="#" role="button" data-target="#modalChat" data-toggle="modalChat" class="chat">
-                            <img src="{{ asset("/images/logoChat.svg") }}" title="CHAT">
-                        </a>
-
-                        {# Modal Chat #}
-                        <div class="modalChat" id="modalChat" role="dialog">
-                            <div class="modalChat-content">
-                                <div class="modalChat-close" data-dismiss="dialog">
-                                    X
-                                </div>
-                                <div class="modalChat-header">
-                                    <h3>Messenger</h3>
-                                </div>
-                                <div class="modalChat-body">
-                                    <h3 class="smsR">sms</h3>
-                                    <h3 class="smsL">sms</h3>
-                                    <h3 class="smsR">sms</h3>
-                                    <h3 class="smsL">sms</h3>
-                                    <h3 class="smsL">sms</h3>
-                                    <h3 class="smsR">sms</h3>
-                                    <h3 class="smsR">sms</h3>
-                                    <h3 class="smsL">sms</h3>
-                                    <h3 class="smsL">sms</h3>
-                                    <h3 class="smsR">sms</h3>
-                                    <h3 class="smsL">sms</h3>
-                                    <h3 class="smsR">sms</h3>
-                                    <h3 class="smsR">sms</h3>
-                                    <h3 class="smsL">sms</h3>
-                                    <h3 class="smsL">sms</h3>
-                                </div>
-                                <div class="modalChat-footer">
-                                    <h3 class="smsText">Ecrivez votre message...</h3>
-                                    <button type="button" class="smsEnvoi">envoi</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        {# horloge #}
-                        <a href="" class="heure">
-                            <span id="h">11</span>
-                            <span class="colon"> : </span>
-                            <span id="m">59</span>
-                            <span class="colon"> : </span>
-                            <span id="s">55</span>
-                        </a>
-                        {# logo entreprise #}
-                        <a href="">
-                            <img id="imgLogoBleu" src="{{ asset("/images/HIlogoPtit.svg") }}">
-                        </a>
-
-                    </div>
-
+        {#chrono#}
+        <div class="col-lg-3">
+            <div class="timer">
+                <div class="carre ms-3">
+                    <h3 id="hour">11</h3>
                 </div>
-
+                <div class="text-center point">:</div>
+                <div class="carre">
+                    <h3 id="minute">59</h3>
+                </div>
+                <div class="text-center point">:</div>
+                <div class="carre me-3">
+                    <h3 id="second">55</h3>
+                </div>
             </div>
-        </footer>
+
+            {#bouton chrono#}
+            <div id="chrono" class="col-lg-12 mx-auto">
+                <form name="form_main">
+                    <div class="d-flex justify-content-evenly chronoControl">
+                        <button type="button" name="start" class="btn-grad w-25 mx-auto mt-2">
+                            <i class="bi bi-play"></i>
+                        </button>
+                        <button type="button" name="pause" class="btn-grad w-25 mx-auto mt-2">
+                            <i class="bi bi-pause"></i>
+                        </button>
+                        <button type="button" name="reset" class="btn-grad w-25 mx-auto mt-2">
+                            <i class="bi bi-arrow-clockwise"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+
+
+
+
 
 
     </div>
+
+
+
+<footer>
+    <div class="container-fluid"  >
+        <div class="row">
+
+            <div class="col-sm-1">
+                <div id="tskbLogo" class="position-absolute">
+                 <div class="tskbStartMenu position-relative invisible"> {# invisible#}
+                        <div class="d-flex flex-column justify-content-between h-100">
+                            <div class="tskbStartMenuItem d-flex py-3 pl-3 font-weight-bold align-items-center bb">
+                                <i class="bi bi-list fa-2x mr-3 text-black mx-3"></i>DÉMARRER
+                            </div>
+                            <div class="bb">
+                                <div class="tskbStartMenuItem userInfo d-flex my-3 align-items-center ">
+                                    <i class="bi bi-person-circle fa-2x mx-3 text-success"></i>{{ app.user.username|capitalize }}
+                                </div>
+                                <a href="{{ path('app_logout') }}" class="tskbStartMenuItem d-flex my-3 align-items-center text-decoration-none text-danger">
+                                    <i class="bi bi-power fa-2x mx-3 text-danger"></i>DÉCONNEXION
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="{{ asset('/images/horizon_logo.png') }}" alt="Démarrer" class="px-4 imgMenu" title="Démarrer">
+                </div>
+            </div>
+
+            <div class="col-md-1 col-sm-2 d-flex justify-content-between px-0">
+                <!-- Button tableau-->
+                <button type="button" class="btn btnApli" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <img class="logoTab" src="{{ asset("/images/tableau.svg") }}">
+                </button>
+                <!-- Modal tableau-->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl mx-0">
+
+                        <div class="modal-content1">
+
+                            <div class="modal-body">
+                                {{ include('default/tableau.html.twig') }}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Button RATP -->
+                <button type="button" class="btn btnApli" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                    <img class="logoRatp" src="{{ asset("/images/ratp2.svg") }}">
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl" style="margin-top: 125px">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <img class="" src="{{ asset("/images/ratp2.svg") }}">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+
+                            <div class="modal-body">
+
+
+                                <div id="enigme" class="container">
+                                            <div class="row" >
+                                                <div class="col-lg-12 pt-2" id="fondEnigme">
+                                                    <h2 class="text-center">ENIGME</h2>
+                                                </div>
+                                                <div class="col-lg-12 pt-5">
+                                                    <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for
+                                                        those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum"
+                                                        by Cicero are also reproduced in their exact original form, accompanied by English
+                                                        versions from the 1914 translation by H. Rackham.</p>
+                                                </div>
+
+                                            </div>
+                                    </div>
+
+
+                                <img class="metro1" src="{{ asset("/images/metro1.svg") }}">
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+
+            </div>
+            <div class="col-lg-6 col-md-12 d-flex justify-content-around pt-2 logoFooterR">
+
+                {#Button de bettery#}
+                <a href="">
+                    <img class="pt-1" src="{{ asset("/images/battery.svg") }}" title="Batterie 90%">
+                </a>
+
+                {#Button de meteo#}
+                <a href="">
+                    <img src="{{ asset("/images/temps.svg") }}" title="Temps nuageux">
+                </a>
+
+                {#Button de wifi#}
+                <a href="">
+                    <img src="{{ asset("/images/wifi.svg") }}" title="WIFI activé">
+                </a>
+
+                {# Button ouverture du chat#}
+                <a href="#" role="button" data-target="#modalChat" data-toggle="modalChat" class="chat">
+                    <img src="{{ asset("/images/logoChat.svg") }}" title="CHAT">
+                </a>
+
+                {#Modal Chat#}
+                <div class="modalChat" id="modalChat" role="dialog">
+                    <div class="modalChat-content">
+                        <div class="modalChat-close" data-dismiss="dialog">
+                            X
+                        </div>
+                        <div class="modalChat-header">
+                            <h3>Messenger</h3>
+                        </div>
+                        <div class="modalChat-body">
+                            <h3 class="smsR">sms</h3>
+                            <h3 class="smsL">sms</h3>
+                            <h3 class="smsR">sms</h3>
+                            <h3 class="smsL">sms</h3>
+                            <h3 class="smsL">sms</h3>
+                            <h3 class="smsR">sms</h3>
+                            <h3 class="smsR">sms</h3>
+                            <h3 class="smsL">sms</h3>
+                            <h3 class="smsL">sms</h3>
+                            <h3 class="smsR">sms</h3>
+                            <h3 class="smsL">sms</h3>
+                            <h3 class="smsR">sms</h3>
+                            <h3 class="smsR">sms</h3>
+                            <h3 class="smsL">sms</h3>
+                            <h3 class="smsL">sms</h3>
+                        </div>
+                        <div class="modalChat-footer">
+                            <h3 class="smsText">Ecrivez votre message...</h3>
+                            <button type="button" class="smsEnvoi">envoi</button>
+                        </div>
+                    </div>
+                </div>
+
+                {#horloge#}
+                <a href="" class="heure">
+                    <span id="h">11</span>
+                    <span class="colon"> : </span>
+                    <span id="m">59</span>
+                    <span class="colon"> : </span>
+                    <span id="s">55</span>
+                </a>
+                {#logo entreprise#}
+                <a href="">
+                    <img id="imgLogoBleu" src="{{ asset("/images/HIlogoPtit.svg") }}">
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</footer>
+
+
+</div>
 
 {% endblock %}

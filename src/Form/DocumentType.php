@@ -28,13 +28,17 @@ class DocumentType extends AbstractType
                 'required'=> false,
                 'attr'=> [ 'class'=> 'form-control'],
                 'constraints'=> [
+
                     new File([
                         'mimeTypes'=> [
                             'image/jpeg',
                             'image/png',
                             'image/svg+xml',
+                            "video/mpeg", "video/mp4", "video/quicktime", "video/x-ms-wmv", "video/x-msvideo", "video/x-flv"
                         ],
                         'mimeTypesMessage'=> 'Veuillez télécharger une image JPG ou PNG',
+
+
                     ]),
                 ],
             ])
