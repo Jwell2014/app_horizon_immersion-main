@@ -563,10 +563,7 @@ a.active{
         right: 25%;
     }
 
-    .sub-sousDoc{
-        left: -414px;
-        top: 549px;
-    }
+
 
 
 }
@@ -590,9 +587,6 @@ a.active{
         z-index: -1;
     }
 
-    .sub-doc{
-        z-index: 100;
-    }
     .sub-sousDoc{
         left: -414px;
         top: 549px;
@@ -639,9 +633,8 @@ a.active{
         background-color: #566D7E !important;
     }
 
-    .sub-doc{
-        z-index: 100;
-    }
+
+
     .sub-sousDoc{
         left: -414px;
         top: 549px;
