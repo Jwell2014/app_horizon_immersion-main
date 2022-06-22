@@ -551,7 +551,8 @@ a.active{
 
 .sub-sousDoc{
     left: -414px;
-    top: 549px;
+    top: 276px;
+    height: 550px;
 }
 
 
@@ -587,9 +588,17 @@ a.active{
         z-index: -1;
     }
 
+    .sub-doc{
+        left: 95px;
+        width: 600px;
+        height: 300px
+    }
+
     .sub-sousDoc{
-        left: -414px;
-        top: 549px;
+        left: -400px;
+        top: 300px;
+        width: 600px;
+        height: 541px;
     }
 
 }
@@ -620,6 +629,7 @@ a.active{
         width: 360px;
         left: 30%;
         top: 0;
+        z-index: -1;
     }
 
     #chrono{
@@ -627,16 +637,31 @@ a.active{
         left: 30%;
         width: 350px;
         top: 15%;
+        z-index: -1;
     }
 
     .logoFooterR {
         background-color: #566D7E !important;
     }
 
+   .sub-nav{
+       width: 27vw;
+       top: -661px;
+       left: -101px;
 
+    }
+
+    .sub-doc{
+        left: 34px;
+        width: 73vw;
+        height: 28vh;
+
+    }
 
     .sub-sousDoc{
-        left: -414px;
-        top: 549px;
+        left: -198%;
+        width: 73vw;
+        height: 52vh;
+        top: 294px;
     }
 }
