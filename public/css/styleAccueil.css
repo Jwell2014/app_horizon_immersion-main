@@ -652,19 +652,23 @@ a.active{
     }
 
    .navImage{
-       
+
    }
 
+    .sub-nav a{
+        padding: 0;
+    }
+
     .sub-doc{
-        left: -24px;
-        width: 486px;
+        left: -4px;
+        width: 528px;
         height: 28vh;
 
     }
 
     .sub-sousDoc{
-        left: -520px;
-        width: 486px;
+        left: -499px;
+        width: 528px;
         height: 52vh;
         top: 294px;
     }
