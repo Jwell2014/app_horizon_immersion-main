@@ -38,7 +38,7 @@
 
 .target{
     height: 24px;
-    width: 10px;
+    width: 24px;
     background-color: red;
     border-radius: 50%;
     display: inline-block;
@@ -47,11 +47,21 @@
     margin-left: -25px !important;
 
     animation-duration: 2s;
-    animation-delay: 3s;
+    animation-delay: 1s;
     animation-name: clignoter;
     animation-iteration-count: infinite;
     transition: none;
 
+}
+
+.targetBis{
+    margin-left: -45px !important;
+}
+.targetTer{
+    margin-left: -30px !important;
+}
+.target4{
+    margin-left: -36px !important;
 }
 
 @keyframes clignoter {
