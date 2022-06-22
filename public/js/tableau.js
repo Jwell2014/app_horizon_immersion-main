@@ -80,6 +80,14 @@ document.querySelector("#check-icon").addEventListener("click", () => {
 
 });
 
+// Permet de valider le post-it en pressant "entrer"
+/*document.querySelector("#user_input").addEventListener('keydown', (event) => {
+  if(event.key === 'Enter'){
+    const text = document.querySelector("#user_input");
+    createStickyNote(text.value);
+
+  }
+});*/
 
 // Allows to define our note to create
 createStickyNote = (text, style) => {
