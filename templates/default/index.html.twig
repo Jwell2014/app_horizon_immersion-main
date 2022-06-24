@@ -104,6 +104,7 @@
             </div>
 
             {#bouton chrono#}
+            {% if app.user and  app.user.hasRole('ROLE_ADMIN') %}
             <div id="chrono" class="col-lg-12 mx-auto">
                 <form name="form_main">
                     <div class="d-flex justify-content-evenly chronoControl">
@@ -119,6 +120,7 @@
                     </div>
                 </form>
             </div>
+            {% endif %}
 
         </div>
 
@@ -147,6 +149,11 @@
                                 <div class="tskbStartMenuItem userInfo d-flex my-3 align-items-center ">
                                     <i class="bi bi-person-circle fa-2x mx-3 text-success"></i>{{ app.user.username|capitalize }}
                                 </div>
+                                {% if app.user and  app.user.hasRole('ROLE_ADMIN') %}
+                                <div class="tskbStartMenuItem userInfo d-flex my-3 align-items-center ">
+                                <a href="{{path('app_admin_interface')}}">Accès Admin</a>
+                                </div>
+                                {% endif %}
                                 <a href="{{ path('app_logout') }}" class="tskbStartMenuItem d-flex my-3 align-items-center text-decoration-none text-danger">
                                     <i class="bi bi-power fa-2x mx-3 text-danger"></i>DÉCONNEXION
                                 </a>
