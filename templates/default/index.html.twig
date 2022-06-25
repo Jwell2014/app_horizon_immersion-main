@@ -104,23 +104,24 @@
             </div>
 
             {#bouton chrono#}
-            {% if app.user and  app.user.hasRole('ROLE_ADMIN') %}
-            <div id="chrono" class="col-lg-12 mx-auto">
-                <form name="form_main">
-                    <div class="d-flex justify-content-evenly chronoControl">
-                        <button type="button" name="start" class="btn-grad w-25 mx-auto mt-2">
-                            <i class="bi bi-play"></i>
-                        </button>
-                        <button type="button" name="pause" class="btn-grad w-25 mx-auto mt-2">
-                            <i class="bi bi-pause"></i>
-                        </button>
-                        <button type="button" name="reset" class="btn-grad w-25 mx-auto mt-2">
-                            <i class="bi bi-arrow-clockwise"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-            {% endif %}
+
+                <div id="chrono" class="col-lg-12 mx-auto {% if app.user and  app.user.hasRole('ROLE_PARTICIPANT') %}hidden{% endif %}">
+                    <form name="form_main">
+                        <div class="d-flex justify-content-evenly chronoControl">
+                            <button type="button" name="start" class="btn-grad w-25 mx-auto mt-2">
+                                <i class="bi bi-play"></i>
+                            </button>
+                            <button type="button" name="pause" class="btn-grad w-25 mx-auto mt-2">
+                                <i class="bi bi-pause"></i>
+                            </button>
+                            <button type="button" name="reset" class="btn-grad w-25 mx-auto mt-2">
+                                <i class="bi bi-arrow-clockwise"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+
 
         </div>
 
@@ -149,14 +150,12 @@
                                 <div class="tskbStartMenuItem userInfo d-flex my-3 align-items-center ">
                                     <i class="bi bi-person-circle fa-2x mx-3 text-success"></i>{{ app.user.username|capitalize }}
                                 </div>
-                                {% if app.user and  app.user.hasRole('ROLE_ADMIN') %}
-                                <div class="tskbStartMenuItem userInfo d-flex my-3 align-items-center ">
-                                <a href="{{path('app_admin_interface')}}">Accès Admin</a>
-                                </div>
-                                {% endif %}
                                 <a href="{{ path('app_logout') }}" class="tskbStartMenuItem d-flex my-3 align-items-center text-decoration-none text-danger">
                                     <i class="bi bi-power fa-2x mx-3 text-danger"></i>DÉCONNEXION
                                 </a>
+                                {% if app.user and  app.user.hasRole('ROLE_ADMIN') %}
+                                    <a href="{{path('app_admin_interface')}}">Accès Admin</a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
