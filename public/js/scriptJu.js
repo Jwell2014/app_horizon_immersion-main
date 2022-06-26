@@ -198,11 +198,8 @@ let hr = hour.dataset.hour;
 let min = minute.dataset.minute;
 let sec = second.dataset.second;
 let millisecond = 0;
-// hr = padLeadingZeros(hr, 2);
-// min = padLeadingZeros(min, 2);
-// sec = padLeadingZeros(sec, 2);
 
-let cron;
+let chrono;
 
 document.form_main.start.onclick = () => start();
 document.form_main.pause.onclick = () => pause();
@@ -210,13 +207,13 @@ document.form_main.reset.onclick = () => reset();
 
 function start() {
     pause();
-    cron = setInterval(() => {
+    chrono = setInterval(() => {
         timer();
     }, 10);
 }
 
 function pause() {
-    clearInterval(cron);
+    clearInterval(chrono);
 }
 
 function reset() {
@@ -248,5 +245,5 @@ function timer() {
 }
 
 function returnData(input) {
-    return input >= 10 ? input : `0${input}`
+    return input >= 10 ? input : `0${input}`;
 }

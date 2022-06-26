@@ -30,9 +30,6 @@ class ParticipantsType extends AbstractType
                 ),
                 'data' => ['ROLE_PARTICIPANT'],
             ))
-
-
-
             ->add('password', TextType::class, [
                 'label' => false,
                 'attr' => array(
@@ -40,8 +37,7 @@ class ParticipantsType extends AbstractType
                     'placeholder' => 'Mot de passe'
                 ),
                 'data' => $random
-            ])
-        ;
+            ]);
         $builder->get('roles')
             ->addModelTransformer(new CallbackTransformer(
                 function ($rolesAsArray) {
@@ -52,9 +48,7 @@ class ParticipantsType extends AbstractType
                     // transform the string back to an array
                     return explode(', ', $rolesAsString);
                 }
-            ))
-        ;
-
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -17,7 +17,7 @@
                     <div class="accordion-item border-0">
                         {# récupère tous les utilisateurs par session#}
                         {% for user in users %}
-                            {# le is defined est là parce que certains utilisateurs peuvent ne pas être associé a une session (genre l'admin)#}
+                            {# le is defined est là parce que certains utilisateurs peuvent ne pas être associé a une session (l'admin par exemple-)#}
                             {% if user.session.id is defined %}
                                 {# là uniquement pour que l'accordion fonctionne - pareil dans le data-bs-targer, aria-controls#}
                                 <h2 class="accordion-header my-2 "
